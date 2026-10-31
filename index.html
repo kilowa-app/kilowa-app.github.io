@@ -1,31 +1,157 @@
 ---
+lang: de
+title: "Kilowa: E-Auto Ladebuch für iPhone · Ladekosten und Verbrauch"
+og_title: "Kilowa: E-Auto Ladebuch für iPhone"
+description: "Kilowa zeigt, was dein Elektroauto wirklich kostet: pro 100 km, inklusive Grundgebühr, aus deinen eigenen Ladungen. Gratis, ohne Konto, ohne Tracking. Für iPhone."
+de: /
+en: /en/
 ---
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Support · Kilowa</title>
-<link rel="stylesheet" href="style.css">
-<link rel="icon" type="image/png" href="icon.png">
-<link rel="apple-touch-icon" href="icon.png">
+{% include head.html %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}/",
+      "name": "Kilowa",
+      "inLanguage": ["de", "en"]
+    },
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#author",
+      "name": "Jörg Wesiak",
+      "address": {"@type": "PostalAddress", "addressLocality": "Zürich", "addressCountry": "CH"},
+      "email": "kilowa.app@gmail.com"
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "{{ site.url }}/#app",
+      "name": "Kilowa: E-Auto Ladebuch",
+      "alternateName": ["Kilowa", "Kilowa: EV Charging Log"],
+      "description": "Ladebuch für Elektroautos auf dem iPhone. Kilowa erfasst Ladungen und berechnet Kosten pro 100 km inklusive Grundgebühr, Preis pro kWh und Verbrauch. Daten bleiben auf dem Gerät und optional in der privaten iCloud.",
+      "url": "{{ site.url }}/",
+      "image": "{{ site.url }}/icon.png",
+      "operatingSystem": "iOS 26 oder neuer",
+      "applicationCategory": "UtilitiesApplication",
+      "inLanguage": ["de", "en"],
+      "isAccessibleForFree": true,
+      "author": {"@id": "{{ site.url }}/#author"},
+      "publisher": {"@id": "{{ site.url }}/#author"},
+      {% if site.appstore_id and site.appstore_id != "" %}"downloadUrl": "https://apps.apple.com/app/id{{ site.appstore_id }}",
+      "installUrl": "https://apps.apple.com/app/id{{ site.appstore_id }}",
+      {% endif %}"offers": {"@type": "Offer", "price": "0", "priceCurrency": "CHF"},
+      "featureList": [
+        "Kosten pro 100 km inklusive Grundgebühr",
+        "Preis pro kWh und Verbrauch aus abgerechneten kWh",
+        "Anbieter und Tarife mit mehreren Preisen, etwa Hoch- und Niedertarif",
+        "Laden im Ausland mit Fremdwährung und eigenem Kurs",
+        "Erfassen mit Siri, Kurzbefehlen, Kontrollzentrum und Action-Taste",
+        "Dashboard mit Vergleich zu einem Benziner",
+        "CSV-Export und iCloud-Sync",
+        "Kein Konto, keine Werbung, kein Tracking"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Was kostet Kilowa?", "acceptedAnswer": {"@type": "Answer", "text": "Kilowa ist gratis und unbegrenzt nutzbar. Kilowa Pro ist ein optionaler Einmalkauf mit zusätzlichen Funktionen wie Erfassen per Siri ohne die App zu öffnen, Widgets, Tarif-Check, Jahresbericht als PDF und mehreren Fahrzeugen."}},
+        {"@type": "Question", "name": "Brauche ich ein Konto?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Kilowa funktioniert ohne Konto und ohne Anmeldung. Es gibt keinen eigenen Server."}},
+        {"@type": "Question", "name": "Wo liegen meine Daten?", "acceptedAnswer": {"@type": "Answer", "text": "Auf deinem iPhone und, wenn du willst, in deinem privaten iCloud. Kilowa zeigt keine Werbung und hat kein Tracking. Die einzige Verbindung ausserhalb von Apple ist der Abruf von Wechselkursen bei der Europäischen Zentralbank."}},
+        {"@type": "Question", "name": "Warum weicht der Verbrauch in Kilowa vom Bordcomputer ab?", "acceptedAnswer": {"@type": "Answer", "text": "Kilowa rechnet mit den abgerechneten kWh, also mit dem Strom, den du bezahlst. Darin sind die Ladeverluste enthalten. Der Bordcomputer zeigt meist nur, was aus der Batterie kommt. Darum passt Kilowa zu deiner Rechnung und liegt etwas über dem Bordcomputer."}},
+        {"@type": "Question", "name": "Wie berechnet Kilowa die Kosten pro 100 km?", "acceptedAnswer": {"@type": "Answer", "text": "Ladekosten plus anteilige Grundgebühren im Zeitraum, geteilt durch die gefahrenen Kilometer, mal 100. Die gefahrenen Kilometer ergeben sich aus den Kilometerständen bei den Ladungen."}},
+        {"@type": "Question", "name": "Auf welchen Geräten läuft Kilowa?", "acceptedAnswer": {"@type": "Answer", "text": "Auf dem iPhone ab iOS 26, auf Deutsch und Englisch, mit Kilometern oder Meilen. Eine Android-Version gibt es derzeit nicht."}},
+        {"@type": "Question", "name": "Kann ich meine Daten exportieren?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Kilowa exportiert deine Ladungen als CSV-Datei, die du in Excel, Numbers oder Google Sheets öffnen kannst."}}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <header>
-<a class="brand" href="index.html"><img src="icon.png" alt="" width="36" height="36"><span>Kilowa</span></a>
-<div class="lang"><a href="index.html" lang="de" aria-current="page">DE</a><a href="en/index.html" lang="en">EN</a></div>
+<a class="brand" href="/"><img src="/icon.png" alt="" width="36" height="36"><span>Kilowa</span></a>
+<div class="lang"><a href="/" lang="de" aria-current="page">DE</a><a href="/en/" lang="en">EN</a></div>
 </header>
 <main>
-<h1>Kilowa</h1>
-<p class="meta">E-Auto Ladebuch für iPhone</p>
+<section class="hero">
+<img class="hero-icon" src="/icon.png" alt="App-Icon von Kilowa" width="96" height="96">
+<h1>Kilowa: das E-Auto Ladebuch für iPhone</h1>
+<p class="lead">Was kostet dein Elektroauto wirklich? Kilowa rechnet es aus deinen eigenen Ladungen aus: pro 100 km, inklusive Grundgebühr. Gratis, ohne Konto, deine Daten bleiben bei dir.</p>
+<p class="cta">{% include appstore.html %}<a class="btn btn-ghost" href="#support">Support</a></p>
+<p class="meta">Für iPhone ab iOS 26 · Deutsch und Englisch · Kilometer oder Meilen</p>
+</section>
 
-<p>Kilowa erfasst deine Ladevorgänge und zeigt Kosten und Verbrauch deines Elektroautos. Deine Daten bleiben auf deinem iPhone und optional in deinem privaten iCloud.</p>
-<h2>Support</h2>
+<h2>Was Kilowa für dich ausrechnet</h2>
+<p>Du erfasst eine Ladung mit kWh oder Total und dem Kilometerstand. Kilowa rechnet den Rest: Preis pro kWh, Verbrauch, Kosten pro 100 km und wohin dein Geld geht. Zuhause an der Wallbox, unterwegs an der Ladesäule, mit Tarif oder spontan.</p>
+<div class="grid">
+<div class="card"><h3>Echte Kosten pro 100 km</h3><p>Grundgebühren für Wallbox, Ladekarte oder Abo fliessen anteilig ein. So siehst du, was ein Kilometer wirklich kostet, nicht nur der Strom.</p></div>
+<div class="card"><h3>Erfassen in Sekunden</h3><p>Siri, Kurzbefehle, Kontrollzentrum und Action-Taste öffnen die vorbefüllte Erfassung. Mit Pro erfasst du per Siri, ohne die App zu öffnen.</p></div>
+<div class="card"><h3>Tarife wie im echten Leben</h3><p>Anbieter mit mehreren Preisen, etwa Hoch- und Niedertarif an der Wallbox. Laden im Ausland mit Fremdwährung und eigenem Kurs.</p></div>
+<div class="card"><h3>Deine Daten bleiben bei dir</h3><p>Kein Konto, keine Werbung, kein Tracking, kein eigener Server. Alles liegt auf deinem iPhone und optional in deinem privaten iCloud.</p></div>
+</div>
+
+<h2>So funktioniert es</h2>
+<ol class="steps">
+<li><strong>Fahrzeug und Tarif anlegen.</strong> Eine kurze Tour führt durch den ersten Tarif.</li>
+<li><strong>Ladung erfassen.</strong> kWh oder Betrag und Kilometerstand eintragen, fertig.</li>
+<li><strong>Auswerten.</strong> Das Dashboard zeigt Kosten pro 100 km, Preis pro kWh, Verbrauch und den Vergleich mit einem Benziner nach deinen Annahmen.</li>
+</ol>
+
+<h2>Gratis und Pro</h2>
+<div class="grid">
+<div class="card"><h3>Gratis</h3>
+<ul>
+<li>Unbegrenzt Ladungen erfassen, mit Tarif oder ad hoc</li>
+<li>Anbieter und Tarife mit mehreren Preisen</li>
+<li>Laden im Ausland mit Fremdwährung</li>
+<li>Ein Fahrzeug mit Foto, Kennzahlen und Cockpit</li>
+<li>Eine Grundgebühr, eingerechnet in die Kosten pro 100 km</li>
+<li>Dashboard der letzten 12 Monate</li>
+<li>42 Abzeichen, teilbar als Bild</li>
+<li>CSV-Export und iCloud-Sync</li>
+</ul></div>
+<div class="card"><h3>Pro, als Einmalkauf</h3>
+<ul>
+<li>Erfassen mit Siri, ohne die App zu öffnen</li>
+<li>Tarif-Knöpfe im Kontrollzentrum, auf dem Sperrbildschirm und auf der Action-Taste</li>
+<li>Widgets mit deinen Monatszahlen</li>
+<li>Tarif-Check: Welcher Tarif wäre mit deinen echten kWh günstiger?</li>
+<li>Dashboard ohne Zeitgrenze mit Vorjahresvergleich und Hochrechnung</li>
+<li>Jahresbericht als PDF</li>
+<li>Mehrere Fahrzeuge mit Fahrzeugvergleich</li>
+<li>Beliebig viele Grundgebühren</li>
+</ul></div>
+</div>
+<p class="note"><strong>Geplant:</strong> Geteilte Fahrzeuge. Ein Ladebuch für mehrere Personen, ob Familie, Freundeskreis oder Team. Noch nicht in der App verfügbar.</p>
+
+<h2>Ladekosten selbst ausrechnen</h2>
+<p>Du willst zuerst wissen, was dein E-Auto pro 100 km kostet? Der <a href="/ladekosten-rechner.html">Ladekosten-Rechner</a> zeigt es dir in wenigen Sekunden, inklusive Grundgebühr und Vergleich mit einem Benziner.</p>
+
+<h2>Häufige Fragen</h2>
+<div class="faq">
+<details><summary>Was kostet Kilowa?</summary><p>Kilowa ist gratis und unbegrenzt nutzbar. Kilowa Pro ist ein optionaler Einmalkauf mit zusätzlichen Funktionen wie Erfassen per Siri ohne die App zu öffnen, Widgets, Tarif-Check, Jahresbericht als PDF und mehreren Fahrzeugen.</p></details>
+<details><summary>Brauche ich ein Konto?</summary><p>Nein. Kilowa funktioniert ohne Konto und ohne Anmeldung. Es gibt keinen eigenen Server.</p></details>
+<details><summary>Wo liegen meine Daten?</summary><p>Auf deinem iPhone und, wenn du willst, in deinem privaten iCloud. Kilowa zeigt keine Werbung und hat kein Tracking. Die einzige Verbindung ausserhalb von Apple ist der Abruf von Wechselkursen bei der Europäischen Zentralbank. Details in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</p></details>
+<details><summary>Warum weicht der Verbrauch in Kilowa vom Bordcomputer ab?</summary><p>Kilowa rechnet mit den abgerechneten kWh, also mit dem Strom, den du bezahlst. Darin sind die Ladeverluste enthalten. Der Bordcomputer zeigt meist nur, was aus der Batterie kommt. Darum passt Kilowa zu deiner Rechnung und liegt etwas über dem Bordcomputer.</p></details>
+<details><summary>Wie berechnet Kilowa die Kosten pro 100 km?</summary><p>Ladekosten plus anteilige Grundgebühren im Zeitraum, geteilt durch die gefahrenen Kilometer, mal 100. Die gefahrenen Kilometer ergeben sich aus den Kilometerständen bei den Ladungen. Ein Beispiel findest du beim <a href="/ladekosten-rechner.html">Ladekosten-Rechner</a>.</p></details>
+<details><summary>Auf welchen Geräten läuft Kilowa?</summary><p>Auf dem iPhone ab iOS 26, auf Deutsch und Englisch, mit Kilometern oder Meilen. Eine Android-Version gibt es derzeit nicht.</p></details>
+<details><summary>Kann ich meine Daten exportieren?</summary><p>Ja. Kilowa exportiert deine Ladungen als CSV-Datei, die du in Excel, Numbers oder Google Sheets öffnen kannst.</p></details>
+</div>
+
+<h2 id="support">Support</h2>
 <div class="card">Fragen, Fehler oder Ideen? Schreib an <a href="mailto:kilowa.app@gmail.com">kilowa.app@gmail.com</a>. Bitte gib das iPhone-Modell und die iOS-Version an.</div>
 
+<h2>Über Kilowa</h2>
+<p>Kilowa entsteht in Zürich. Jörg Wesiak hat die App entwickelt, weil er die Ladekosten seines eigenen Elektroautos in einer Excel-Tabelle geführt hat und das auf dem iPhone einfacher gehen sollte.</p>
+
 <h2>Rechtliches</h2>
-<nav class="pages"><a href="impressum.html">Impressum</a><a href="nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="datenschutz.html">Datenschutzerklärung</a></nav>
+<nav class="pages"><a href="/impressum.html">Impressum</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/datenschutz.html">Datenschutzerklärung</a></nav>
 </main>
-<footer><a href="index.html">Support</a> <a href="impressum.html">Impressum</a> <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a> <a href="datenschutz.html">Datenschutz</a><span class="built">Erstellt am <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: "%d.%m.%Y, %H:%M" }} Uhr</time></span></footer>
+<footer><a href="/">Kilowa</a> <a href="/ladekosten-rechner.html">Ladekosten-Rechner</a> <a href="/#support">Support</a> <a href="/impressum.html">Impressum</a> <a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a> <a href="/datenschutz.html">Datenschutz</a><span class="built">Erstellt am <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: "%d.%m.%Y, %H:%M" }} Uhr</time></span></footer>
 </body>
 </html>

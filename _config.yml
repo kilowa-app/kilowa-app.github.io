@@ -1,2 +1,11 @@
 # GitHub Pages baut die Seite mit Jekyll; site.time in den Fusszeilen ist die Zeit des Builds.
 timezone: Europe/Zurich
+url: https://kilowa-app.github.io
+# Nach dem Release die Apple-ID der App eintragen (App Store Connect > App-Informationen > Apple-ID, nur die Zahl).
+# Dann erscheinen der App-Store-Knopf, das Smart App Banner in Safari und der Download-Link in den strukturierten Daten.
+appstore_id: ""
+plugins:
+  - jekyll-sitemap
+exclude:
+  - fonts/OFL.txt
+  - README.md

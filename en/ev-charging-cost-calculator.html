@@ -1,0 +1,92 @@
+---
+lang: en
+title: "EV Charging Cost Calculator: Cost per 100 km incl. Base Fees · Kilowa"
+og_title: "EV Charging Cost Calculator"
+description: "Work out what your electric car costs per 100 km: electricity plus base fees for your wallbox or charging card, compared with a petrol car. Free, no sign-up."
+de: /ladekosten-rechner.html
+en: /en/ev-charging-cost-calculator.html
+---
+<!doctype html>
+<html lang="en">
+<head>
+{% include head.html %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "EV Charging Cost Calculator",
+  "url": "{{ site.url }}/en/ev-charging-cost-calculator.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Any web browser",
+  "isAccessibleForFree": true,
+  "inLanguage": "en",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+  "author": {"@type": "Person", "@id": "{{ site.url }}/#author", "name": "Joerg Wesiak"}
+}
+</script>
+</head>
+<body>
+<header>
+<a class="brand" href="/en/"><img src="/icon.png" alt="" width="36" height="36"><span>Kilowa</span></a>
+<div class="lang"><a href="/ladekosten-rechner.html" lang="de">DE</a><a href="/en/ev-charging-cost-calculator.html" lang="en" aria-current="page">EN</a></div>
+</header>
+<main>
+<h1>EV Charging Cost Calculator</h1>
+<p class="lead">What does your electric car cost per 100 km once the base fee for your wallbox, charging card or plan is included? Enter your numbers. The fields are prefilled with example values, not current market prices.</p>
+
+<form class="card calc" id="calc" onsubmit="return false">
+<div class="row"><label for="c">Consumption (kWh per 100 km)</label><input id="c" type="number" inputmode="decimal" min="0" step="any" value="18"></div>
+<div class="row"><label for="p">Electricity price (per kWh)</label><input id="p" type="number" inputmode="decimal" min="0" step="any" value="0.30"></div>
+<div class="row"><label for="g">Base fees per month</label><input id="g" type="number" inputmode="decimal" min="0" step="any" value="20"></div>
+<div class="row"><label for="k">Distance per month (km)</label><input id="k" type="number" inputmode="decimal" min="1" step="any" value="1000"></div>
+<div class="row"><label for="l">Petrol car (liters per 100 km)</label><input id="l" type="number" inputmode="decimal" min="0" step="any" value="6.5"></div>
+<div class="row"><label for="b">Petrol price (per liter)</label><input id="b" type="number" inputmode="decimal" min="0" step="any" value="1.80"></div>
+<output class="result" id="out" for="c p g k l b" aria-live="polite"></output>
+</form>
+<p class="meta">All amounts in your currency, for example EUR or CHF. The calculator runs only in your browser and stores nothing.</p>
+
+<h2>How it is calculated</h2>
+<p><strong>Electricity per 100 km</strong> = consumption × electricity price<br>
+<strong>Base fee per 100 km</strong> = base fees per month ÷ km per month × 100<br>
+<strong>Cost per 100 km</strong> = electricity per 100 km + base fee per 100 km</p>
+<p>Example with the prefilled values: 18 kWh × 0.30 = 5.40 for electricity. A base fee of 20 at 1,000 km a month adds 2.00 per 100 km. Together that is 7.40 per 100 km. The example petrol car uses 6.5 liters at 1.80, so 11.70 per 100 km.</p>
+<p>The base fee matters most if you drive little: at 500 km a month it would be 4.00 instead of 2.00 per 100 km in the example.</p>
+
+<h2>Which consumption figure should I use?</h2>
+<p>Your car usually shows what leaves the battery. Charging losses come on top, and you pay for them too. For the most accurate figure, use the kWh billed on your electricity bill or at the charger: charged kWh ÷ km driven × 100.</p>
+
+<h2>Automatically with every charge</h2>
+<div class="card">
+<p><strong>Kilowa</strong> does this for you with your real charges, tariffs and odometer readings, including peak and off-peak tariffs and charging abroad. No account, your data stays on your iPhone.</p>
+<p class="cta">{% include appstore.html %}<a class="btn btn-ghost" href="/en/">More about Kilowa</a></p>
+</div>
+</main>
+<footer><a href="/en/">Kilowa</a> <a href="/en/ev-charging-cost-calculator.html">Charging cost calculator</a> <a href="/en/#support">Support</a> <a href="/en/legal-notice.html">Legal Notice</a> <a href="/en/terms.html">Terms of Use</a> <a href="/en/privacy.html">Privacy Policy</a><span class="built">Built on <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: "%-d %b %Y, %H:%M %Z" }}</time></span></footer>
+<script>
+(function () {
+  var ids = ["c", "p", "g", "k", "l", "b"];
+  var fmt = new Intl.NumberFormat("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  function v(id) { var n = parseFloat(String(document.getElementById(id).value).replace(",", ".")); return isFinite(n) ? n : 0; }
+  function calc() {
+    var power = v("c") * v("p");
+    var km = v("k");
+    var fee = km > 0 ? v("g") / km * 100 : 0;
+    var total = power + fee;
+    var petrol = v("l") * v("b");
+    var diff = petrol - total;
+    var year = diff / 100 * km * 12;
+    var html = "<span class=\"big\">" + fmt.format(total) + "</span> per 100 km" +
+      "<span class=\"sub\">Electricity " + fmt.format(power) + " + base fee " + fmt.format(fee) + "</span>";
+    if (petrol > 0) {
+      html += "<span class=\"sub\">Petrol car " + fmt.format(petrol) + " per 100 km. " +
+        (diff >= 0 ? "You save " + fmt.format(diff) + " per 100 km, about " + fmt.format(year) + " a year."
+                   : "The EV costs " + fmt.format(-diff) + " more per 100 km.") + "</span>";
+    }
+    document.getElementById("out").innerHTML = html;
+  }
+  ids.forEach(function (id) { document.getElementById(id).addEventListener("input", calc); });
+  calc();
+})();
+</script>
+</body>
+</html>

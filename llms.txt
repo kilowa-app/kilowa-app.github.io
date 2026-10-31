@@ -1,0 +1,20 @@
+---
+---
+# Kilowa
+
+> Kilowa ist ein Ladebuch für Elektroautos auf dem iPhone (iOS 26 oder neuer), auf Deutsch und Englisch. Es berechnet aus den eigenen Ladungen die Kosten pro 100 km inklusive Grundgebühr, den Preis pro kWh und den Verbrauch. Gratis nutzbar, Pro ist ein optionaler Einmalkauf. Kein Konto, keine Werbung, kein Tracking; Daten bleiben auf dem iPhone und optional im privaten iCloud. Entwickelt von Jörg Wesiak in Zürich.
+
+English: Kilowa is an EV charging log for iPhone. It calculates cost per 100 km including base fees, price per kWh and consumption from your own charges. Free, with an optional one-time Pro purchase. No account, no ads, no tracking.
+
+## Seiten
+
+- [Kilowa (Deutsch)]({{ site.url }}/): Funktionen, Gratis und Pro, häufige Fragen, Support
+- [Kilowa (English)]({{ site.url }}/en/): features, Free and Pro, FAQ, support
+- [E-Auto Ladekosten-Rechner]({{ site.url }}/ladekosten-rechner.html): Kosten pro 100 km inklusive Grundgebühr, Vergleich mit Benziner, mit Formel
+- [EV charging cost calculator]({{ site.url }}/en/ev-charging-cost-calculator.html): cost per 100 km including base fees, petrol comparison, with formula
+
+## Rechtliches
+
+- [Datenschutzerklärung]({{ site.url }}/datenschutz.html)
+- [Privacy Policy]({{ site.url }}/en/privacy.html)
+- [Impressum]({{ site.url }}/impressum.html)

@@ -1,0 +1,1 @@
+{% if site.appstore_id and site.appstore_id != "" %}<a class="btn" href="https://apps.apple.com/app/id{{ site.appstore_id }}">{% if page.lang == 'en' %}Download on the App Store{% else %}Im App Store laden{% endif %}</a>{% else %}<span class="btn btn-soon">{% if page.lang == 'en' %}Coming soon to the App Store{% else %}Bald im App Store{% endif %}</span>{% endif %}

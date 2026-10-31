@@ -1,0 +1,92 @@
+---
+lang: de
+title: "E-Auto Ladekosten-Rechner: Kosten pro 100 km inkl. Grundgebühr · Kilowa"
+og_title: "E-Auto Ladekosten-Rechner"
+description: "Rechne aus, was dein Elektroauto pro 100 km kostet: Strom plus Grundgebühr für Wallbox oder Ladekarte, im Vergleich mit einem Benziner. Gratis, ohne Anmeldung."
+de: /ladekosten-rechner.html
+en: /en/ev-charging-cost-calculator.html
+---
+<!doctype html>
+<html lang="de">
+<head>
+{% include head.html %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "E-Auto Ladekosten-Rechner",
+  "url": "{{ site.url }}/ladekosten-rechner.html",
+  "applicationCategory": "UtilitiesApplication",
+  "operatingSystem": "Alle mit Webbrowser",
+  "isAccessibleForFree": true,
+  "inLanguage": "de",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CHF"},
+  "author": {"@type": "Person", "@id": "{{ site.url }}/#author", "name": "Jörg Wesiak"}
+}
+</script>
+</head>
+<body>
+<header>
+<a class="brand" href="/"><img src="/icon.png" alt="" width="36" height="36"><span>Kilowa</span></a>
+<div class="lang"><a href="/ladekosten-rechner.html" lang="de" aria-current="page">DE</a><a href="/en/ev-charging-cost-calculator.html" lang="en">EN</a></div>
+</header>
+<main>
+<h1>E-Auto Ladekosten-Rechner</h1>
+<p class="lead">Was kostet dein Elektroauto pro 100 km, wenn auch die Grundgebühr für Wallbox, Ladekarte oder Abo mitzählt? Trag deine Werte ein. Die Felder sind mit Beispielwerten vorbefüllt, nicht mit aktuellen Marktpreisen.</p>
+
+<form class="card calc" id="calc" onsubmit="return false">
+<div class="row"><label for="c">Verbrauch (kWh pro 100 km)</label><input id="c" type="number" inputmode="decimal" min="0" step="any" value="18"></div>
+<div class="row"><label for="p">Strompreis (pro kWh)</label><input id="p" type="number" inputmode="decimal" min="0" step="any" value="0.30"></div>
+<div class="row"><label for="g">Grundgebühren pro Monat</label><input id="g" type="number" inputmode="decimal" min="0" step="any" value="20"></div>
+<div class="row"><label for="k">Gefahrene km pro Monat</label><input id="k" type="number" inputmode="decimal" min="1" step="any" value="1000"></div>
+<div class="row"><label for="l">Vergleich Benziner (Liter pro 100 km)</label><input id="l" type="number" inputmode="decimal" min="0" step="any" value="6.5"></div>
+<div class="row"><label for="b">Benzinpreis (pro Liter)</label><input id="b" type="number" inputmode="decimal" min="0" step="any" value="1.80"></div>
+<output class="result" id="out" for="c p g k l b" aria-live="polite"></output>
+</form>
+<p class="meta">Alle Beträge in deiner Währung, zum Beispiel CHF oder EUR. Der Rechner läuft nur in deinem Browser und speichert nichts.</p>
+
+<h2>So wird gerechnet</h2>
+<p><strong>Strom pro 100 km</strong> = Verbrauch × Strompreis<br>
+<strong>Grundgebühr pro 100 km</strong> = Grundgebühren pro Monat ÷ gefahrene km pro Monat × 100<br>
+<strong>Kosten pro 100 km</strong> = Strom pro 100 km + Grundgebühr pro 100 km</p>
+<p>Beispiel mit den vorbefüllten Werten: 18 kWh × 0.30 = 5.40 für den Strom. 20 Grundgebühr bei 1000 km im Monat ergibt 2.00 pro 100 km. Zusammen 7.40 pro 100 km. Der Benziner im Beispiel braucht 6.5 Liter zu 1.80, also 11.70 pro 100 km.</p>
+<p>Die Grundgebühr macht viel aus, wenn du wenig fährst: Bei 500 km im Monat wären es im Beispiel 4.00 statt 2.00 pro 100 km.</p>
+
+<h2>Welcher Verbrauch ist der richtige?</h2>
+<p>Der Bordcomputer zeigt meist, was aus der Batterie kommt. Beim Laden gehen zusätzlich Ladeverluste verloren, die du trotzdem bezahlst. Am genauesten rechnest du darum mit den kWh, die auf deiner Stromrechnung oder an der Ladesäule abgerechnet werden: geladene kWh ÷ gefahrene km × 100.</p>
+
+<h2>Automatisch mit jeder Ladung</h2>
+<div class="card">
+<p><strong>Kilowa</strong> rechnet das für dich mit deinen echten Ladungen, Tarifen und Kilometerständen, auch mit Hoch- und Niedertarif und beim Laden im Ausland. Ohne Konto, deine Daten bleiben auf deinem iPhone.</p>
+<p class="cta">{% include appstore.html %}<a class="btn btn-ghost" href="/">Mehr über Kilowa</a></p>
+</div>
+</main>
+<footer><a href="/">Kilowa</a> <a href="/ladekosten-rechner.html">Ladekosten-Rechner</a> <a href="/#support">Support</a> <a href="/impressum.html">Impressum</a> <a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a> <a href="/datenschutz.html">Datenschutz</a><span class="built">Erstellt am <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: "%d.%m.%Y, %H:%M" }} Uhr</time></span></footer>
+<script>
+(function () {
+  var ids = ["c", "p", "g", "k", "l", "b"];
+  var fmt = new Intl.NumberFormat("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  function v(id) { var n = parseFloat(String(document.getElementById(id).value).replace(",", ".")); return isFinite(n) ? n : 0; }
+  function calc() {
+    var power = v("c") * v("p");
+    var km = v("k");
+    var fee = km > 0 ? v("g") / km * 100 : 0;
+    var total = power + fee;
+    var petrol = v("l") * v("b");
+    var diff = petrol - total;
+    var year = diff / 100 * km * 12;
+    var html = "<span class=\"big\">" + fmt.format(total) + "</span> pro 100 km" +
+      "<span class=\"sub\">Strom " + fmt.format(power) + " + Grundgebühr " + fmt.format(fee) + "</span>";
+    if (petrol > 0) {
+      html += "<span class=\"sub\">Benziner " + fmt.format(petrol) + " pro 100 km. " +
+        (diff >= 0 ? "Du sparst " + fmt.format(diff) + " pro 100 km, rund " + fmt.format(year) + " pro Jahr."
+                   : "Das E-Auto kostet " + fmt.format(-diff) + " mehr pro 100 km.") + "</span>";
+    }
+    document.getElementById("out").innerHTML = html;
+  }
+  ids.forEach(function (id) { document.getElementById(id).addEventListener("input", calc); });
+  calc();
+})();
+</script>
+</body>
+</html>

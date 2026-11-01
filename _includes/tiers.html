@@ -33,7 +33,7 @@
 <header class="tier-head">
 <h3>Pro</h3>
 <p class="tier-tag">{% if en %}Log without opening the app, see every year{% else %}Erfassen ohne App öffnen, Auswertung ohne Zeitgrenze{% endif %}</p>
-<p class="tier-price">{% if site.price_pro_chf != "" %}<span class="amount">CHF {{ site.price_pro_chf }}</span><span class="alt">EUR {{ site.price_pro_eur }}</span>{% endif %}<span class="per">{% if en %}one-time{% else %}einmalig{% endif %}</span></p>
+<p class="tier-price">{% if site.price_pro_eur != "" %}<span class="amount">EUR {{ site.price_pro_eur }}</span><span class="alt">CHF {{ site.price_pro_chf }}</span>{% endif %}<span class="per">{% if en %}one-time{% else %}einmalig{% endif %}</span></p>
 </header>
 <p class="inherits"><span class="plus" aria-hidden="true">+</span>{% if en %}Everything in Free, plus:{% else %}Alles aus Gratis, plus:{% endif %}</p>
 <ul class="checks">
@@ -61,7 +61,7 @@
 <header class="tier-head">
 <h3>{% if en %}Pro Family{% else %}Pro Familie{% endif %} <span class="pill">{% if en %}Coming with 1.1{% else %}Ab Version 1.1{% endif %}</span></h3>
 <p class="tier-tag">{% if en %}One purchase for your whole Apple family group{% else %}Ein Kauf für deine ganze Apple-Familiengruppe{% endif %}</p>
-<p class="tier-price">{% if site.price_family_chf != "" %}<span class="amount">CHF {{ site.price_family_chf }}</span><span class="alt">EUR {{ site.price_family_eur }}</span>{% endif %}<span class="per">{% if en %}one-time{% else %}einmalig{% endif %}</span></p>
+<p class="tier-price">{% if site.price_family_eur != "" %}<span class="amount">EUR {{ site.price_family_eur }}</span><span class="alt">CHF {{ site.price_family_chf }}</span>{% endif %}<span class="per">{% if en %}one-time{% else %}einmalig{% endif %}</span></p>
 </header>
 <p class="inherits"><span class="plus" aria-hidden="true">+</span>{% if en %}Everything in Pro, plus:{% else %}Alles aus Pro, plus:{% endif %}</p>
 <ul class="checks">
@@ -75,8 +75,8 @@
 </ul>
 <figure class="family-visual" aria-hidden="true">
 <div class="car-row">
-<svg class="car" viewBox="0 0 64 32" width="64" height="32"><path d="M8 22h48v-6l-6-2-7-7H22l-8 7-6 2z" fill="currentColor"/><circle cx="18" cy="23" r="5" fill="var(--card)"/><circle cx="18" cy="23" r="3" fill="currentColor"/><circle cx="46" cy="23" r="5" fill="var(--card)"/><circle cx="46" cy="23" r="3" fill="currentColor"/></svg>
-<span>{% if en %}1 car · 1 charging log{% else %}1 Auto · 1 Ladebuch{% endif %}</span>
+<svg class="car car2" viewBox="0 0 64 32" width="64" height="32"><path d="M8 22h48v-6l-6-2-7-7H22l-8 7-6 2z" fill="currentColor"/><circle cx="18" cy="23" r="5" fill="var(--card)"/><circle cx="18" cy="23" r="3" fill="currentColor"/><circle cx="46" cy="23" r="5" fill="var(--card)"/><circle cx="46" cy="23" r="3" fill="currentColor"/></svg><svg class="car" viewBox="0 0 64 32" width="64" height="32"><path d="M8 22h48v-6l-6-2-7-7H22l-8 7-6 2z" fill="currentColor"/><circle cx="18" cy="23" r="5" fill="var(--card)"/><circle cx="18" cy="23" r="3" fill="currentColor"/><circle cx="46" cy="23" r="5" fill="var(--card)"/><circle cx="46" cy="23" r="3" fill="currentColor"/></svg>
+<span>{% if en %}Several cars, logged together{% else %}Mehrere Autos, gemeinsam erfasst{% endif %}</span>
 </div>
 <div class="avatars"><span></span><span></span><span></span><span></span><span></span><span></span></div>
 <figcaption>{% if en %}One purchase, up to six people{% else %}Ein Kauf, bis zu sechs Personen{% endif %}</figcaption>

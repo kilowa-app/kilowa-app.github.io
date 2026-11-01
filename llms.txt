@@ -8,7 +8,7 @@ English: Kilowa is an EV charging log for iPhone. It calculates cost per 100 km 
 
 ## Seiten
 
-- [Kilowa (Deutsch)]({{ site.url }}/): Funktionen, Gratis und Pro, häufige Fragen, Support
+- [Kilowa (Deutsch)]({{ site.url }}/): Funktionen, Free, Pro und Pro Familie, häufige Fragen, Support
 - [Kilowa (English)]({{ site.url }}/en/): features, Free and Pro, FAQ, support
 - [E-Auto Ladekosten-Rechner]({{ site.url }}/ladekosten-rechner.html): Kosten pro 100 km inklusive Grundgebühr, Vergleich mit Benziner, mit Formel
 - [EV charging cost calculator]({{ site.url }}/en/ev-charging-cost-calculator.html): cost per 100 km including base fees, petrol comparison, with formula

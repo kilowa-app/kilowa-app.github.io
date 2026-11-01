@@ -1,12 +1,12 @@
 {% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}
 <section class="tiers" aria-labelledby="tiers-title">
-<h2 id="tiers-title">{% if en %}Free, Pro and Pro Family{% else %}Gratis, Pro und Pro Familie{% endif %}</h2>
+<h2 id="tiers-title">{% if en %}Free, Pro and Pro Family{% else %}Free, Pro und Pro Familie{% endif %}</h2>
 <p class="tiers-intro">{% if en %}Start for free with no time limit. Pro and Pro Family are one-time purchases, not subscriptions.{% else %}Starte gratis und ohne Zeitlimit. Pro und Pro Familie sind Einmalkäufe, kein Abo.{% endif %}</p>
 <div class="tier-grid">
 
 <article class="tier">
 <header class="tier-head">
-<h3>{% if en %}Free{% else %}Gratis{% endif %}</h3>
+<h3>Free</h3>
 <p class="tier-tag">{% if en %}Everything you need to log and understand your costs{% else %}Alles, um deine Kosten zu erfassen und zu verstehen{% endif %}</p>
 <p class="tier-price"><span class="amount">EUR 0.00</span><span class="alt">CHF 0.00</span><span class="per">{% if en %}forever{% else %}für immer{% endif %}</span></p>
 </header>
@@ -35,7 +35,7 @@
 <p class="tier-tag">{% if en %}Log without opening the app, see every year{% else %}Erfassen ohne App öffnen, Auswertung ohne Zeitgrenze{% endif %}</p>
 <p class="tier-price">{% if site.price_pro_eur != "" %}<span class="amount">EUR {{ site.price_pro_eur }}</span><span class="alt">CHF {{ site.price_pro_chf }}</span>{% endif %}<span class="per">{% if en %}one-time{% else %}einmalig{% endif %}</span></p>
 </header>
-<p class="inherits"><span class="plus" aria-hidden="true">+</span>{% if en %}Everything in Free, plus:{% else %}Alles aus Gratis, plus:{% endif %}</p>
+<p class="inherits"><span class="plus" aria-hidden="true">+</span>{% if en %}Everything in Free, plus:{% else %}Alles aus Free, plus:{% endif %}</p>
 <ul class="checks">
 {% if en %}<li>Log with Siri without opening the app</li>
 <li>Tariff buttons in Control Center, on the Lock Screen and on the Action button</li>

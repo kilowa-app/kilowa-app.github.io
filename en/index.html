@@ -38,18 +38,19 @@ en: /en/
         "Log with Siri, Shortcuts, Control Center and the Action button",
         "Dashboard with a comparison to a petrol car",
         "CSV export and iCloud sync",
+        "Two-pane layouts for the unfolded iPhone Duo",
         "No account, no ads, no tracking"
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "How much does Kilowa cost?", "acceptedAnswer": {"@type": "Answer", "text": "Kilowa is free with unlimited charges. Kilowa Pro is an optional one-time purchase that adds features such as logging with Siri without opening the app, widgets, a tariff check, an annual PDF report and multiple vehicles."}},
+        {"@type": "Question", "name": "How much does Kilowa cost?", "acceptedAnswer": {"@type": "Answer", "text": "Kilowa is free with unlimited charges. Kilowa Pro is an optional one-time purchase that adds features such as logging with Siri without opening the app, widgets, a tariff check, an annual PDF report and multiple vehicles. Pro Family is planned for version 1.1: Pro for up to six people in an Apple family group."}},
         {"@type": "Question", "name": "Do I need an account?", "acceptedAnswer": {"@type": "Answer", "text": "No. Kilowa works without an account or sign-in. There is no server of its own."}},
         {"@type": "Question", "name": "Where is my data stored?", "acceptedAnswer": {"@type": "Answer", "text": "On your iPhone and, if you like, in your private iCloud. Kilowa shows no ads and has no tracking. The only connection outside Apple fetches exchange rates from the European Central Bank."}},
         {"@type": "Question", "name": "Why does Kilowa show higher consumption than my car?", "acceptedAnswer": {"@type": "Answer", "text": "Kilowa uses the billed kWh, the electricity you pay for, which includes charging losses. The car usually shows only what leaves the battery. That is why Kilowa matches your bill and sits a little above the car's display."}},
         {"@type": "Question", "name": "How does Kilowa calculate cost per 100 km?", "acceptedAnswer": {"@type": "Answer", "text": "Charging costs plus the share of base fees in the period, divided by the distance driven, times 100. The distance comes from the odometer readings you enter with each charge."}},
-        {"@type": "Question", "name": "Which devices does Kilowa run on?", "acceptedAnswer": {"@type": "Answer", "text": "iPhone with iOS 26 or later, in English and German, with kilometers or miles. There is currently no Android version."}},
+        {"@type": "Question", "name": "Which devices does Kilowa run on?", "acceptedAnswer": {"@type": "Answer", "text": "iPhone with iOS 26 or later, in English and German, with kilometers or miles. On the unfolded iPhone Duo, Kilowa uses the large screen in two halves. There is currently no Android version."}},
         {"@type": "Question", "name": "Can I export my data?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Kilowa exports your charges as a CSV file that opens in Excel, Numbers or Google Sheets."}}
       ]
     }
@@ -68,7 +69,7 @@ en: /en/
 <h1>Kilowa: the EV charging log for iPhone</h1>
 <p class="lead">What does your electric car really cost? Kilowa works it out from your own charges: per 100 km, base fees included. Free, no account, your data stays with you.</p>
 <p class="cta">{% include appstore.html %}<a class="btn btn-ghost" href="#support">Support</a></p>
-<p class="meta">For iPhone with iOS 26 or later · English and German · kilometers or miles</p>
+<p class="meta">For iPhone with iOS 26 or later and iPhone Duo · English and German · kilometers or miles</p>
 </section>
 
 <h2>What Kilowa works out for you</h2>
@@ -80,6 +81,8 @@ en: /en/
 <div class="card"><h3>Your data stays with you</h3><p>No account, no ads, no tracking, no server of its own. Everything stays on your iPhone and, optionally, in your private iCloud.</p></div>
 </div>
 
+{% include duo.html %}
+
 <h2>How it works</h2>
 <ol class="steps">
 <li><strong>Add your car and tariff.</strong> A short tour guides you through your first tariff.</li>
@@ -87,44 +90,19 @@ en: /en/
 <li><strong>See the results.</strong> The dashboard shows cost per 100 km, price per kWh, consumption and a comparison with a petrol car based on your assumptions.</li>
 </ol>
 
-<h2>Free and Pro</h2>
-<div class="grid">
-<div class="card"><h3>Free</h3>
-<ul>
-<li>Log unlimited charges, on a tariff or ad hoc</li>
-<li>Providers and tariffs with several prices</li>
-<li>Charging abroad in foreign currency</li>
-<li>One vehicle with photo, key figures and cockpit</li>
-<li>One base fee, included in your cost per 100 km</li>
-<li>Dashboard for the last 12 months</li>
-<li>42 badges, shareable as an image</li>
-<li>CSV export and iCloud sync</li>
-</ul></div>
-<div class="card"><h3>Pro, a one-time purchase</h3>
-<ul>
-<li>Log with Siri without opening the app</li>
-<li>Tariff buttons in Control Center, on the Lock Screen and on the Action button</li>
-<li>Widgets with your monthly numbers</li>
-<li>Tariff check: which tariff would be cheaper with your real kWh?</li>
-<li>Dashboard without time limit, with year-over-year comparison and projection</li>
-<li>Annual report as PDF</li>
-<li>Multiple vehicles with vehicle comparison</li>
-<li>Unlimited base fees</li>
-</ul></div>
-</div>
-<p class="note"><strong>Coming:</strong> Shared vehicles. One charging log for several people, whether family, friends or your team. Not yet available in the app.</p>
+{% include tiers.html %}
 
 <h2>Work out your charging costs</h2>
 <p>Want to know first what your EV costs per 100 km? The <a href="/en/ev-charging-cost-calculator.html">EV charging cost calculator</a> shows you in seconds, including base fees and a comparison with a petrol car.</p>
 
 <h2>Frequently asked questions</h2>
 <div class="faq">
-<details><summary>How much does Kilowa cost?</summary><p>Kilowa is free with unlimited charges. Kilowa Pro is an optional one-time purchase that adds features such as logging with Siri without opening the app, widgets, a tariff check, an annual PDF report and multiple vehicles.</p></details>
+<details><summary>How much does Kilowa cost?</summary><p>Kilowa is free with unlimited charges. Kilowa Pro is an optional one-time purchase that adds features such as logging with Siri without opening the app, widgets, a tariff check, an annual PDF report and multiple vehicles. Pro Family is planned for version 1.1: Pro for up to six people in an Apple family group.</p></details>
 <details><summary>Do I need an account?</summary><p>No. Kilowa works without an account or sign-in. There is no server of its own.</p></details>
 <details><summary>Where is my data stored?</summary><p>On your iPhone and, if you like, in your private iCloud. Kilowa shows no ads and has no tracking. The only connection outside Apple fetches exchange rates from the European Central Bank. See the <a href="/en/privacy.html">privacy policy</a>.</p></details>
 <details><summary>Why does Kilowa show higher consumption than my car?</summary><p>Kilowa uses the billed kWh, the electricity you pay for, which includes charging losses. The car usually shows only what leaves the battery. That is why Kilowa matches your bill and sits a little above the car's display.</p></details>
 <details><summary>How does Kilowa calculate cost per 100 km?</summary><p>Charging costs plus the share of base fees in the period, divided by the distance driven, times 100. The distance comes from the odometer readings you enter with each charge. See an example with the <a href="/en/ev-charging-cost-calculator.html">calculator</a>.</p></details>
-<details><summary>Which devices does Kilowa run on?</summary><p>iPhone with iOS 26 or later, in English and German, with kilometers or miles. There is currently no Android version.</p></details>
+<details><summary>Which devices does Kilowa run on?</summary><p>iPhone with iOS 26 or later, in English and German, with kilometers or miles. On the unfolded iPhone Duo, Kilowa uses the large screen in two halves. There is currently no Android version.</p></details>
 <details><summary>Can I export my data?</summary><p>Yes. Kilowa exports your charges as a CSV file that opens in Excel, Numbers or Google Sheets.</p></details>
 </div>
 

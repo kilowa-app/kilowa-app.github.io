@@ -1,0 +1,14 @@
+{% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}
+<section class="duo" aria-labelledby="duo-title">
+<div class="duo-device" aria-hidden="true">
+<div class="pane pane-left"><div class="ph"></div><div class="kpi"><b>7.40</b><i></i></div><div class="bar w80"></div><div class="bar w60"></div></div>
+<div class="fold"></div>
+<div class="pane pane-right"><div class="row"></div><div class="row"></div><div class="row"></div><div class="row"></div><div class="row"></div></div>
+</div>
+<div class="duo-text">
+<h2 id="duo-title">{% if en %}Made for iPhone Duo{% else %}Gemacht für das iPhone Duo{% endif %}</h2>
+{% if en %}<p>Unfolded, Kilowa uses the large screen in two halves aligned to the fold: photo and key figures on the left, your history on the right. Edit a charge on the right while the list stays on the left. With several cars, the dashboard shows one column per vehicle.</p>
+<p>Fold it up and everything works like on any iPhone. Your scroll position and selection stay put.</p>{% else %}<p>Aufgeklappt nutzt Kilowa den grossen Bildschirm in zwei Hälften, ausgerichtet am Falz: links Foto und Kennzahlen, rechts dein Verlauf. Eine Ladung bearbeitest du rechts, während links die Liste bleibt. Mit mehreren Autos zeigt das Dashboard eine Spalte pro Fahrzeug.</p>
+<p>Zugeklappt funktioniert alles wie auf jedem iPhone. Scrollposition und Auswahl bleiben dabei erhalten.</p>{% endif %}
+</div>
+</section>

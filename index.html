@@ -53,18 +53,19 @@ en: /en/
         "Erfassen mit Siri, Kurzbefehlen, Kontrollzentrum und Action-Taste",
         "Dashboard mit Vergleich zu einem Benziner",
         "CSV-Export und iCloud-Sync",
+        "Zweigeteilte Layouts für das aufgeklappte iPhone Duo",
         "Kein Konto, keine Werbung, kein Tracking"
       ]
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
-        {"@type": "Question", "name": "Was kostet Kilowa?", "acceptedAnswer": {"@type": "Answer", "text": "Kilowa ist gratis und unbegrenzt nutzbar. Kilowa Pro ist ein optionaler Einmalkauf mit zusätzlichen Funktionen wie Erfassen per Siri ohne die App zu öffnen, Widgets, Tarif-Check, Jahresbericht als PDF und mehreren Fahrzeugen."}},
+        {"@type": "Question", "name": "Was kostet Kilowa?", "acceptedAnswer": {"@type": "Answer", "text": "Kilowa ist gratis und unbegrenzt nutzbar. Kilowa Pro ist ein optionaler Einmalkauf mit zusätzlichen Funktionen wie Erfassen per Siri ohne die App zu öffnen, Widgets, Tarif-Check, Jahresbericht als PDF und mehreren Fahrzeugen. Ab Version 1.1 ist Pro Familie geplant: Pro für bis zu sechs Personen einer Apple-Familiengruppe."}},
         {"@type": "Question", "name": "Brauche ich ein Konto?", "acceptedAnswer": {"@type": "Answer", "text": "Nein. Kilowa funktioniert ohne Konto und ohne Anmeldung. Es gibt keinen eigenen Server."}},
         {"@type": "Question", "name": "Wo liegen meine Daten?", "acceptedAnswer": {"@type": "Answer", "text": "Auf deinem iPhone und, wenn du willst, in deinem privaten iCloud. Kilowa zeigt keine Werbung und hat kein Tracking. Die einzige Verbindung ausserhalb von Apple ist der Abruf von Wechselkursen bei der Europäischen Zentralbank."}},
         {"@type": "Question", "name": "Warum weicht der Verbrauch in Kilowa vom Bordcomputer ab?", "acceptedAnswer": {"@type": "Answer", "text": "Kilowa rechnet mit den abgerechneten kWh, also mit dem Strom, den du bezahlst. Darin sind die Ladeverluste enthalten. Der Bordcomputer zeigt meist nur, was aus der Batterie kommt. Darum passt Kilowa zu deiner Rechnung und liegt etwas über dem Bordcomputer."}},
         {"@type": "Question", "name": "Wie berechnet Kilowa die Kosten pro 100 km?", "acceptedAnswer": {"@type": "Answer", "text": "Ladekosten plus anteilige Grundgebühren im Zeitraum, geteilt durch die gefahrenen Kilometer, mal 100. Die gefahrenen Kilometer ergeben sich aus den Kilometerständen bei den Ladungen."}},
-        {"@type": "Question", "name": "Auf welchen Geräten läuft Kilowa?", "acceptedAnswer": {"@type": "Answer", "text": "Auf dem iPhone ab iOS 26, auf Deutsch und Englisch, mit Kilometern oder Meilen. Eine Android-Version gibt es derzeit nicht."}},
+        {"@type": "Question", "name": "Auf welchen Geräten läuft Kilowa?", "acceptedAnswer": {"@type": "Answer", "text": "Auf dem iPhone ab iOS 26, auf Deutsch und Englisch, mit Kilometern oder Meilen. Auf dem aufgeklappten iPhone Duo nutzt Kilowa den grossen Bildschirm in zwei Hälften. Eine Android-Version gibt es derzeit nicht."}},
         {"@type": "Question", "name": "Kann ich meine Daten exportieren?", "acceptedAnswer": {"@type": "Answer", "text": "Ja. Kilowa exportiert deine Ladungen als CSV-Datei, die du in Excel, Numbers oder Google Sheets öffnen kannst."}}
       ]
     }
@@ -83,7 +84,7 @@ en: /en/
 <h1>Kilowa: das E-Auto Ladebuch für iPhone</h1>
 <p class="lead">Was kostet dein Elektroauto wirklich? Kilowa rechnet es aus deinen eigenen Ladungen aus: pro 100 km, inklusive Grundgebühr. Gratis, ohne Konto, deine Daten bleiben bei dir.</p>
 <p class="cta">{% include appstore.html %}<a class="btn btn-ghost" href="#support">Support</a></p>
-<p class="meta">Für iPhone ab iOS 26 · Deutsch und Englisch · Kilometer oder Meilen</p>
+<p class="meta">Für iPhone ab iOS 26 und iPhone Duo · Deutsch und Englisch · Kilometer oder Meilen</p>
 </section>
 
 <h2>Was Kilowa für dich ausrechnet</h2>
@@ -95,6 +96,8 @@ en: /en/
 <div class="card"><h3>Deine Daten bleiben bei dir</h3><p>Kein Konto, keine Werbung, kein Tracking, kein eigener Server. Alles liegt auf deinem iPhone und optional in deinem privaten iCloud.</p></div>
 </div>
 
+{% include duo.html %}
+
 <h2>So funktioniert es</h2>
 <ol class="steps">
 <li><strong>Fahrzeug und Tarif anlegen.</strong> Eine kurze Tour führt durch den ersten Tarif.</li>
@@ -102,44 +105,19 @@ en: /en/
 <li><strong>Auswerten.</strong> Das Dashboard zeigt Kosten pro 100 km, Preis pro kWh, Verbrauch und den Vergleich mit einem Benziner nach deinen Annahmen.</li>
 </ol>
 
-<h2>Gratis und Pro</h2>
-<div class="grid">
-<div class="card"><h3>Gratis</h3>
-<ul>
-<li>Unbegrenzt Ladungen erfassen, mit Tarif oder ad hoc</li>
-<li>Anbieter und Tarife mit mehreren Preisen</li>
-<li>Laden im Ausland mit Fremdwährung</li>
-<li>Ein Fahrzeug mit Foto, Kennzahlen und Cockpit</li>
-<li>Eine Grundgebühr, eingerechnet in die Kosten pro 100 km</li>
-<li>Dashboard der letzten 12 Monate</li>
-<li>42 Abzeichen, teilbar als Bild</li>
-<li>CSV-Export und iCloud-Sync</li>
-</ul></div>
-<div class="card"><h3>Pro, als Einmalkauf</h3>
-<ul>
-<li>Erfassen mit Siri, ohne die App zu öffnen</li>
-<li>Tarif-Knöpfe im Kontrollzentrum, auf dem Sperrbildschirm und auf der Action-Taste</li>
-<li>Widgets mit deinen Monatszahlen</li>
-<li>Tarif-Check: Welcher Tarif wäre mit deinen echten kWh günstiger?</li>
-<li>Dashboard ohne Zeitgrenze mit Vorjahresvergleich und Hochrechnung</li>
-<li>Jahresbericht als PDF</li>
-<li>Mehrere Fahrzeuge mit Fahrzeugvergleich</li>
-<li>Beliebig viele Grundgebühren</li>
-</ul></div>
-</div>
-<p class="note"><strong>Geplant:</strong> Geteilte Fahrzeuge. Ein Ladebuch für mehrere Personen, ob Familie, Freundeskreis oder Team. Noch nicht in der App verfügbar.</p>
+{% include tiers.html %}
 
 <h2>Ladekosten selbst ausrechnen</h2>
 <p>Du willst zuerst wissen, was dein E-Auto pro 100 km kostet? Der <a href="/ladekosten-rechner.html">Ladekosten-Rechner</a> zeigt es dir in wenigen Sekunden, inklusive Grundgebühr und Vergleich mit einem Benziner.</p>
 
 <h2>Häufige Fragen</h2>
 <div class="faq">
-<details><summary>Was kostet Kilowa?</summary><p>Kilowa ist gratis und unbegrenzt nutzbar. Kilowa Pro ist ein optionaler Einmalkauf mit zusätzlichen Funktionen wie Erfassen per Siri ohne die App zu öffnen, Widgets, Tarif-Check, Jahresbericht als PDF und mehreren Fahrzeugen.</p></details>
+<details><summary>Was kostet Kilowa?</summary><p>Kilowa ist gratis und unbegrenzt nutzbar. Kilowa Pro ist ein optionaler Einmalkauf mit zusätzlichen Funktionen wie Erfassen per Siri ohne die App zu öffnen, Widgets, Tarif-Check, Jahresbericht als PDF und mehreren Fahrzeugen. Ab Version 1.1 ist Pro Familie geplant: Pro für bis zu sechs Personen einer Apple-Familiengruppe.</p></details>
 <details><summary>Brauche ich ein Konto?</summary><p>Nein. Kilowa funktioniert ohne Konto und ohne Anmeldung. Es gibt keinen eigenen Server.</p></details>
 <details><summary>Wo liegen meine Daten?</summary><p>Auf deinem iPhone und, wenn du willst, in deinem privaten iCloud. Kilowa zeigt keine Werbung und hat kein Tracking. Die einzige Verbindung ausserhalb von Apple ist der Abruf von Wechselkursen bei der Europäischen Zentralbank. Details in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</p></details>
 <details><summary>Warum weicht der Verbrauch in Kilowa vom Bordcomputer ab?</summary><p>Kilowa rechnet mit den abgerechneten kWh, also mit dem Strom, den du bezahlst. Darin sind die Ladeverluste enthalten. Der Bordcomputer zeigt meist nur, was aus der Batterie kommt. Darum passt Kilowa zu deiner Rechnung und liegt etwas über dem Bordcomputer.</p></details>
 <details><summary>Wie berechnet Kilowa die Kosten pro 100 km?</summary><p>Ladekosten plus anteilige Grundgebühren im Zeitraum, geteilt durch die gefahrenen Kilometer, mal 100. Die gefahrenen Kilometer ergeben sich aus den Kilometerständen bei den Ladungen. Ein Beispiel findest du beim <a href="/ladekosten-rechner.html">Ladekosten-Rechner</a>.</p></details>
-<details><summary>Auf welchen Geräten läuft Kilowa?</summary><p>Auf dem iPhone ab iOS 26, auf Deutsch und Englisch, mit Kilometern oder Meilen. Eine Android-Version gibt es derzeit nicht.</p></details>
+<details><summary>Auf welchen Geräten läuft Kilowa?</summary><p>Auf dem iPhone ab iOS 26, auf Deutsch und Englisch, mit Kilometern oder Meilen. Auf dem aufgeklappten iPhone Duo nutzt Kilowa den grossen Bildschirm in zwei Hälften. Eine Android-Version gibt es derzeit nicht.</p></details>
 <details><summary>Kann ich meine Daten exportieren?</summary><p>Ja. Kilowa exportiert deine Ladungen als CSV-Datei, die du in Excel, Numbers oder Google Sheets öffnen kannst.</p></details>
 </div>
 

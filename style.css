@@ -139,10 +139,26 @@ footer .built{display:block;margin-top:8px}
 .eyebrow{font-size:17px;font-weight:600;color:var(--accent);margin:0 0 10px}
 .feature-text .eyebrow{color:var(--accent)}
 
-/* Wege zum Erfassen */
-.ways{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:20px 0 0}
-.ways li{margin:0;padding:6px 14px;border-radius:16px;background:var(--band-alt);font-size:15px;color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
-.ways .pro{font-size:12px;font-weight:600;color:var(--accent);margin-left:4px}
+/* Wege zum Erfassen: Knöpfe wechseln das Bild daneben */
+.quick{position:relative}
+.way-pick{position:absolute;opacity:0;pointer-events:none}
+.ways-hint{font-size:14px!important;margin:24px 0 10px!important}
+.ways{list-style:none;display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0}
+.ways li{margin:0}
+.ways label{display:inline-flex;align-items:center;gap:4px;padding:7px 14px;border-radius:17px;background:var(--band-alt);font-size:15px;color:var(--fg);box-shadow:inset 0 0 0 1px var(--line);cursor:pointer;transition:background-color .2s var(--ease),color .2s var(--ease),box-shadow .2s var(--ease)}
+.ways label:hover{box-shadow:inset 0 0 0 1px var(--accent)}
+.ways .pro{font-size:12px;font-weight:600;color:var(--accent)}
+.way-note{min-height:3em;margin:16px 0 0!important;font-size:15px!important}
+.way-note span{display:none}
+.way-screens{position:relative}
+.way-screens img{transition:opacity .35s var(--ease)}
+.way-screens img+img{position:absolute;inset:0;height:100%;opacity:0}
+.way-screens .s-widget{opacity:0}
+#w-siri:checked~.feature-text .l-siri,#w-kurz:checked~.feature-text .l-kurz,#w-kc:checked~.feature-text .l-kc,#w-akt:checked~.feature-text .l-akt,#w-wid:checked~.feature-text .l-wid,#w-lock:checked~.feature-text .l-lock{background:var(--accent-btn);color:#fff;box-shadow:none}
+#w-siri:checked~.feature-text .l-siri .pro,#w-kurz:checked~.feature-text .l-kurz .pro,#w-kc:checked~.feature-text .l-kc .pro,#w-akt:checked~.feature-text .l-akt .pro,#w-wid:checked~.feature-text .l-wid .pro,#w-lock:checked~.feature-text .l-lock .pro{color:#fff}
+#w-siri:focus-visible~.feature-text .l-siri,#w-kurz:focus-visible~.feature-text .l-kurz,#w-kc:focus-visible~.feature-text .l-kc,#w-akt:focus-visible~.feature-text .l-akt,#w-wid:focus-visible~.feature-text .l-wid,#w-lock:focus-visible~.feature-text .l-lock{outline:2px solid var(--accent);outline-offset:2px}
+#w-siri:checked~.feature-text .n-siri,#w-kurz:checked~.feature-text .n-kurz,#w-kc:checked~.feature-text .n-kc,#w-akt:checked~.feature-text .n-akt,#w-wid:checked~.feature-text .n-wid,#w-lock:checked~.feature-text .n-lock{display:inline}
+#w-wid:checked~.feature-shot .s-widget,#w-siri:checked~.feature-shot .s-erfassen,#w-kurz:checked~.feature-shot .s-erfassen,#w-akt:checked~.feature-shot .s-erfassen,#w-kc:checked~.feature-shot .s-kontrollzentrum,#w-lock:checked~.feature-shot .s-sperrbildschirm{opacity:1}
 
 /* Ladekosten-Rechner im Abschnitt */
 .calc-block{display:grid;grid-template-columns:1fr;gap:32px;max-width:960px;margin:120px auto 0;padding-top:72px;border-top:1px solid var(--line)}

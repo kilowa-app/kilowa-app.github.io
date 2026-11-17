@@ -44,7 +44,7 @@ en: /en/
       "publisher": {"@id": "{{ site.url }}/#author"},
       {% if site.appstore_id and site.appstore_id != "" %}"downloadUrl": "https://apps.apple.com/app/id{{ site.appstore_id }}",
       "installUrl": "https://apps.apple.com/app/id{{ site.appstore_id }}",
-      {% endif %}"screenshot": ["{{ site.url }}/img/iphone-de-1-start.webp", "{{ site.url }}/img/iphone-de-3-dashboard.webp", "{{ site.url }}/img/iphone-de-2-erfassen.webp", "{{ site.url }}/img/iphone-de-7-widget.webp", "{{ site.url }}/img/iphone-de-4-tarif-check.webp", "{{ site.url }}/img/duo-de-1-start.webp"],
+      {% endif %}"screenshot": ["{{ site.url }}/img/iphone-de-1-start.webp", "{{ site.url }}/img/iphone-de-3-dashboard.webp", "{{ site.url }}/img/iphone-de-2-erfassen.webp", "{{ site.url }}/img/iphone-de-7-widget.webp", "{{ site.url }}/img/iphone-de-8-sperrbildschirm.webp", "{{ site.url }}/img/iphone-de-9-kontrollzentrum.webp", "{{ site.url }}/img/iphone-de-4-tarif-check.webp", "{{ site.url }}/img/duo-de-1-start.webp"],
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "CHF"},
       "featureList": [
         "Kosten pro 100 km inklusive Grundgebühr",
@@ -106,16 +106,17 @@ en: /en/
 </div>
 <figure class="feature-shot"><div class="iphone"><img src="/img/iphone-de-3-dashboard.webp" width="720" height="1565" alt="Dashboard: 8,57 EUR pro 100 km und die Frage «Wohin geht mein Geld?» mit Anteilen für Grundgebühr, Zuhause und Unterwegs" loading="lazy"></div></figure>
 </div>
-<div class="feature flip">
+<div class="feature flip quick">
+<input class="way-pick" type="radio" name="way" id="w-siri" aria-controls="way-shot"><input class="way-pick" type="radio" name="way" id="w-kurz" aria-controls="way-shot"><input class="way-pick" type="radio" name="way" id="w-kc" aria-controls="way-shot"><input class="way-pick" type="radio" name="way" id="w-akt" aria-controls="way-shot"><input class="way-pick" type="radio" name="way" id="w-wid" checked aria-controls="way-shot"><input class="way-pick" type="radio" name="way" id="w-lock" aria-controls="way-shot">
 <div class="feature-text">
 <p class="eyebrow">Schnell erfassen</p>
 <h3>Ladungen erfassen, ohne die App zu suchen</h3>
 <p>Siri, Kurzbefehle, Kontrollzentrum und Aktionstaste öffnen die Erfassung schon vorbefüllt. Mit Pro tippst du direkt auf einen Tarif-Knopf im Widget, auf dem Sperrbildschirm oder im Kontrollzentrum, und Siri erfasst die Ladung, ohne dass du die App öffnest.</p>
-<ul class="ways" aria-label="Wege zum Erfassen">
-<li>Siri</li><li>Kurzbefehle</li><li>Kontrollzentrum</li><li>Aktionstaste</li><li>Widget <span class="pro">Pro</span></li><li>Sperrbildschirm <span class="pro">Pro</span></li>
-</ul>
+<p class="ways-hint">Tippe auf einen Weg, um ihn zu sehen</p>
+<ul class="ways" aria-label="Wege zum Erfassen"><li><label class="l-siri" for="w-siri">Siri</label></li><li><label class="l-kurz" for="w-kurz">Kurzbefehle</label></li><li><label class="l-kc" for="w-kc">Kontrollzentrum</label></li><li><label class="l-akt" for="w-akt">Aktionstaste</label></li><li><label class="l-wid" for="w-wid">Widget <span class="pro">Pro</span></label></li><li><label class="l-lock" for="w-lock">Sperrbildschirm <span class="pro">Pro</span></label></li></ul>
+<p class="way-note" aria-live="polite"><span class="n-siri">Siri öffnet die Erfassung schon vorbefüllt. Mit Pro fragt Siri nach kWh und Kilometerstand, ohne dass du die App öffnest.</span><span class="n-kurz">Ein Kurzbefehl öffnet die Erfassung schon vorbefüllt, mit deinem Fahrzeug und Tarif.</span><span class="n-kc">Im Kontrollzentrum öffnet «Ladung erfassen» die Erfassung. Mit Pro legst du dort auch Tarif-Knöpfe ab.</span><span class="n-akt">Die Aktionstaste öffnet die Erfassung schon vorbefüllt. Mit Pro legst du einen Tarif direkt auf die Taste.</span><span class="n-wid">Das Widget zeigt deine Monatszahlen auf dem Home-Bildschirm, mit Tarif-Knöpfen zum direkten Erfassen.</span><span class="n-lock">Auf dem Sperrbildschirm siehst du die Kosten im Monat und legst unten einen Tarif-Knopf ab.</span></p>
 </div>
-<figure class="feature-shot"><div class="iphone"><img src="/img/iphone-de-7-widget.webp" width="720" height="1565" alt="Home-Bildschirm mit zwei Kilowa-Widgets: 81,12 € im November und 8,57 € pro 100 km, dazu Tarif-Knöpfe für die Stadtwerk Wallbox und ein Plus zum Erfassen" loading="lazy"></div></figure>
+<figure class="feature-shot" id="way-shot"><div class="iphone"><div class="way-screens"><img class="s-widget" src="/img/iphone-de-7-widget.webp" width="720" height="1565" alt="Home-Bildschirm mit zwei Kilowa-Widgets: 81,12 € im November und 8,57 € pro 100 km, dazu Tarif-Knöpfe für die Stadtwerk Wallbox und ein Plus zum Erfassen" loading="lazy"><img class="s-erfassen" src="/img/iphone-de-2-erfassen.webp" width="720" height="1565" alt="Neue Ladung: Stadtwerk Wallbox im Hochtarif vorbefüllt, 24 kWh geladen, Kilometerstand 9579" loading="lazy"><img class="s-kontrollzentrum" src="/img/iphone-de-9-kontrollzentrum.webp" width="720" height="1565" alt="Kontrollzentrum mit den Kilowa-Knöpfen «Ladung erfassen» und «Stadtwerk Wallbox · Niedertarif»" loading="lazy"><img class="s-sperrbildschirm" src="/img/iphone-de-8-sperrbildschirm.webp" width="720" height="1565" alt="Sperrbildschirm mit 9:41, darunter das Kilowa-Widget mit 81,12 € im November und 8,57 € pro 100 km sowie ein Kilowa-Knopf unten rechts" loading="lazy"></div></div></figure>
 </div>
 <div class="feature">
 <div class="feature-text">

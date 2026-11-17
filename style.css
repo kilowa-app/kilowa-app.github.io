@@ -129,7 +129,9 @@ footer .built{display:block;margin-top:8px}
 .feature-shot{margin:0;display:flex;justify-content:center}
 .feature-shot .iphone{width:280px}
 @media (min-width:800px){
-  .feature{grid-template-columns:1fr 1fr;gap:80px}
+  /* Text bleibt beim Scrollen neben dem hohen Screenshot stehen, wie beim Rechner */
+  .feature{grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+  .feature-text{position:sticky;top:120px;padding-top:48px}
   .feature-shot .iphone{width:300px}
   .feature.flip .feature-text{order:2}
 }

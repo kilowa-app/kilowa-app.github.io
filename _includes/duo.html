@@ -1,25 +1,20 @@
-{% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}{% if en %}{% assign l = 'en' %}{% else %}{% assign l = 'de' %}{% endif %}
+{% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}
 <section class="duo" aria-labelledby="duo-title">
 <div class="section-head">
 <h2 id="duo-title">{% if en %}Made for iPhone Duo{% else %}Gemacht für das iPhone Duo{% endif %}</h2>
 <p class="lead">{% if en %}Unfolded, Kilowa uses the large screen in two halves aligned to the fold: photo and key figures on the left, your history on the right. Edit a charge on the right while the list stays on the left. With several cars, the dashboard shows one column per vehicle.{% else %}Aufgeklappt nutzt Kilowa den grossen Bildschirm in zwei Hälften, ausgerichtet am Falz: links Foto und Kennzahlen, rechts dein Verlauf. Eine Ladung bearbeitest du rechts, während links die Liste bleibt. Mit mehreren Autos zeigt das Dashboard eine Spalte pro Fahrzeug.{% endif %}</p>
 </div>
-<div class="duo-stage">
-<input class="duo-pick" type="radio" name="duo" id="duo-a" checked>
-<input class="duo-pick" type="radio" name="duo" id="duo-b">
-<input class="duo-pick" type="radio" name="duo" id="duo-c">
-<figure class="duo-device" style="margin:0 auto">
-<div class="duo-screens">
-<img class="s-a" src="/img/duo-{{ l }}-1-start.webp" width="1600" height="1126" alt="{% if en %}Kilowa on the unfolded iPhone Duo: City Zipper with 10.89 cost per 100 km on the left, history on the right{% else %}Kilowa auf dem aufgeklappten iPhone Duo: links Stadtflitzer mit 10,89 Kosten pro 100 km, rechts der Verlauf{% endif %}" loading="lazy">
-<img class="s-b" src="/img/duo-{{ l }}-2-dashboard.webp" width="1600" height="1126" alt="{% if en %}Dashboard on iPhone Duo in two columns: cost per 100 km and monthly costs{% else %}Dashboard auf dem iPhone Duo in zwei Spalten: Kosten pro 100 km und Kosten im Monat{% endif %}" loading="lazy">
-<img class="s-c" src="/img/duo-{{ l }}-3-verlauf.webp" width="1600" height="1126" alt="{% if en %}History on iPhone Duo: list on the left, editing a charge on the right{% else %}Verlauf auf dem iPhone Duo: links die Liste, rechts eine Ladung in Bearbeitung{% endif %}" loading="lazy">
+<div class="duo-stage explore" data-explore>
+{% if en %}<input class="ex-pick" type="radio" name="duo" id="duo-start" checked><input class="ex-pick" type="radio" name="duo" id="duo-dash"><input class="ex-pick" type="radio" name="duo" id="duo-verlauf">{% else %}<input class="ex-pick" type="radio" name="duo" id="duo-start" checked><input class="ex-pick" type="radio" name="duo" id="duo-dash"><input class="ex-pick" type="radio" name="duo" id="duo-verlauf">{% endif %}
+<div class="duo-side">
+{% if en %}<div class="ex-list-wrap"><div class="ex-nav" aria-hidden="true"><button type="button" class="ex-up" data-step="-1" tabindex="-1" aria-label="Previous view"></button><button type="button" class="ex-down" data-step="1" tabindex="-1" aria-label="Next view"></button></div><ul class="ex-list" aria-label="Views"><li><label class="ex-pill p-start" for="duo-start"><span class="ex-plus" aria-hidden="true"></span>Start</label><p class="ex-card c-start"><strong>Start.</strong> Your car’s photo and key figures on the left, your history on the right. Both halves line up with the fold.</p></li><li><label class="ex-pill p-dash" for="duo-dash"><span class="ex-plus" aria-hidden="true"></span>Dashboard</label><p class="ex-card c-dash"><strong>Dashboard.</strong> Cards sit side by side in two columns. With several cars, the dashboard shows one column per vehicle.</p></li><li><label class="ex-pill p-verlauf" for="duo-verlauf"><span class="ex-plus" aria-hidden="true"></span>History</label><p class="ex-card c-verlauf"><strong>History.</strong> Edit a charge on the right while the list stays on the left.</p></li></ul></div>{% else %}<div class="ex-list-wrap"><div class="ex-nav" aria-hidden="true"><button type="button" class="ex-up" data-step="-1" tabindex="-1" aria-label="Vorherige Ansicht"></button><button type="button" class="ex-down" data-step="1" tabindex="-1" aria-label="Nächste Ansicht"></button></div><ul class="ex-list" aria-label="Ansichten"><li><label class="ex-pill p-start" for="duo-start"><span class="ex-plus" aria-hidden="true"></span>Start</label><p class="ex-card c-start"><strong>Start.</strong> Links Foto und Kennzahlen deines Autos, rechts dein Verlauf. Beide Hälften sind am Falz ausgerichtet.</p></li><li><label class="ex-pill p-dash" for="duo-dash"><span class="ex-plus" aria-hidden="true"></span>Dashboard</label><p class="ex-card c-dash"><strong>Dashboard.</strong> Die Karten stehen in zwei Spalten nebeneinander. Mit mehreren Autos zeigt das Dashboard eine Spalte pro Fahrzeug.</p></li><li><label class="ex-pill p-verlauf" for="duo-verlauf"><span class="ex-plus" aria-hidden="true"></span>Verlauf</label><p class="ex-card c-verlauf"><strong>Verlauf.</strong> Eine Ladung bearbeitest du rechts, während links die Liste bleibt.</p></li></ul></div>{% endif %}
+</div>
+<figure class="duo-device">
+<div class="ex-screens duo-screens">
+{% if en %}<img class="s-start" src="/img/duo-en-1-start.webp" width="1600" height="1126" alt="Kilowa on the unfolded iPhone Duo: City Zipper with 10.89 cost per 100 km on the left, history on the right" loading="lazy"><img class="s-dash" src="/img/duo-en-2-dashboard.webp" width="1600" height="1126" alt="Dashboard on iPhone Duo in two columns: cost per 100 km and monthly costs" loading="lazy"><img class="s-verlauf" src="/img/duo-en-3-verlauf.webp" width="1600" height="1126" alt="History on iPhone Duo: list on the left, editing a charge on the right" loading="lazy">{% else %}<img class="s-start" src="/img/duo-de-1-start.webp" width="1600" height="1126" alt="Kilowa auf dem aufgeklappten iPhone Duo: links Stadtflitzer mit 10,89 Kosten pro 100 km, rechts der Verlauf" loading="lazy"><img class="s-dash" src="/img/duo-de-2-dashboard.webp" width="1600" height="1126" alt="Dashboard auf dem iPhone Duo in zwei Spalten: Kosten pro 100 km und Kosten im Monat" loading="lazy"><img class="s-verlauf" src="/img/duo-de-3-verlauf.webp" width="1600" height="1126" alt="Verlauf auf dem iPhone Duo: links die Liste, rechts eine Ladung in Bearbeitung" loading="lazy">{% endif %}
 </div>
 </figure>
-<div class="duo-tabs" role="group" aria-label="{% if en %}Choose screen{% else %}Ansicht wählen{% endif %}">
-<label class="l-a" for="duo-a">Start</label>
-<label class="l-b" for="duo-b">Dashboard</label>
-<label class="l-c" for="duo-c">{% if en %}History{% else %}Verlauf{% endif %}</label>
 </div>
 <p class="duo-note">{% if en %}Fold it up and everything works like on any iPhone. Your scroll position and selection stay put.{% else %}Zugeklappt funktioniert alles wie auf jedem iPhone. Scrollposition und Auswahl bleiben dabei erhalten.{% endif %}</p>
-</div>
 </section>
+<script src="/explore.js" defer></script>

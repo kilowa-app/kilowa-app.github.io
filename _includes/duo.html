@@ -1,14 +1,25 @@
-{% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}
+{% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}{% if en %}{% assign l = 'en' %}{% else %}{% assign l = 'de' %}{% endif %}
 <section class="duo" aria-labelledby="duo-title">
-<div class="duo-device" aria-hidden="true">
-<div class="pane pane-left"><div class="ph"></div><div class="kpi"><b>7.40</b><i></i></div><div class="bar w80"></div><div class="bar w60"></div></div>
-<div class="fold"></div>
-<div class="pane pane-right"><div class="row"></div><div class="row"></div><div class="row"></div><div class="row"></div><div class="row"></div></div>
-</div>
-<div class="duo-text">
+<div class="section-head">
 <h2 id="duo-title">{% if en %}Made for iPhone Duo{% else %}Gemacht für das iPhone Duo{% endif %}</h2>
-{% if en %}<p>Unfolded, Kilowa uses the large screen in two halves aligned to the fold: photo and key figures on the left, your history on the right. Edit a charge on the right while the list stays on the left. With several cars, the dashboard shows one column per vehicle.</p>
-<p>Fold it up and everything works like on any iPhone. Your scroll position and selection stay put.</p>{% else %}<p>Aufgeklappt nutzt Kilowa den grossen Bildschirm in zwei Hälften, ausgerichtet am Falz: links Foto und Kennzahlen, rechts dein Verlauf. Eine Ladung bearbeitest du rechts, während links die Liste bleibt. Mit mehreren Autos zeigt das Dashboard eine Spalte pro Fahrzeug.</p>
-<p>Zugeklappt funktioniert alles wie auf jedem iPhone. Scrollposition und Auswahl bleiben dabei erhalten.</p>{% endif %}
+<p class="lead">{% if en %}Unfolded, Kilowa uses the large screen in two halves aligned to the fold: photo and key figures on the left, your history on the right. Edit a charge on the right while the list stays on the left. With several cars, the dashboard shows one column per vehicle.{% else %}Aufgeklappt nutzt Kilowa den grossen Bildschirm in zwei Hälften, ausgerichtet am Falz: links Foto und Kennzahlen, rechts dein Verlauf. Eine Ladung bearbeitest du rechts, während links die Liste bleibt. Mit mehreren Autos zeigt das Dashboard eine Spalte pro Fahrzeug.{% endif %}</p>
+</div>
+<div class="duo-stage">
+<input class="duo-pick" type="radio" name="duo" id="duo-a" checked>
+<input class="duo-pick" type="radio" name="duo" id="duo-b">
+<input class="duo-pick" type="radio" name="duo" id="duo-c">
+<figure class="duo-device" style="margin:0 auto">
+<div class="duo-screens">
+<img class="s-a" src="/img/duo-{{ l }}-1-start.webp" width="1600" height="1126" alt="{% if en %}Kilowa on the unfolded iPhone Duo: City Zipper with 10.89 cost per 100 km on the left, history on the right{% else %}Kilowa auf dem aufgeklappten iPhone Duo: links Stadtflitzer mit 10,89 Kosten pro 100 km, rechts der Verlauf{% endif %}" loading="lazy">
+<img class="s-b" src="/img/duo-{{ l }}-2-dashboard.webp" width="1600" height="1126" alt="{% if en %}Dashboard on iPhone Duo in two columns: cost per 100 km and monthly costs{% else %}Dashboard auf dem iPhone Duo in zwei Spalten: Kosten pro 100 km und Kosten im Monat{% endif %}" loading="lazy">
+<img class="s-c" src="/img/duo-{{ l }}-3-verlauf.webp" width="1600" height="1126" alt="{% if en %}History on iPhone Duo: list on the left, editing a charge on the right{% else %}Verlauf auf dem iPhone Duo: links die Liste, rechts eine Ladung in Bearbeitung{% endif %}" loading="lazy">
+</div>
+</figure>
+<div class="duo-tabs" role="group" aria-label="{% if en %}Choose screen{% else %}Ansicht wählen{% endif %}">
+<label class="l-a" for="duo-a">Start</label>
+<label class="l-b" for="duo-b">Dashboard</label>
+<label class="l-c" for="duo-c">{% if en %}History{% else %}Verlauf{% endif %}</label>
+</div>
+<p class="duo-note">{% if en %}Fold it up and everything works like on any iPhone. Your scroll position and selection stay put.{% else %}Zugeklappt funktioniert alles wie auf jedem iPhone. Scrollposition und Auswahl bleiben dabei erhalten.{% endif %}</p>
 </div>
 </section>

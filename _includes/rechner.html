@@ -1,0 +1,47 @@
+{% assign en = false %}{% if page.lang == 'en' %}{% assign en = true %}{% endif %}<form class="card calc" id="calc" onsubmit="return false" aria-label="{% if en %}EV charging cost calculator{% else %}Ladekosten-Rechner{% endif %}">
+<div class="calc-fields">
+{% if en %}<div class="row"><label for="c">Consumption (kWh per 100 km)</label><input id="c" type="number" inputmode="decimal" min="0" step="any" value="18"></div>
+<div class="row"><label for="p">Electricity price (per kWh)</label><input id="p" type="number" inputmode="decimal" min="0" step="any" value="0.30"></div>
+<div class="row"><label for="g">Base fees per month</label><input id="g" type="number" inputmode="decimal" min="0" step="any" value="20"></div>
+<div class="row"><label for="k">Distance per month (km)</label><input id="k" type="number" inputmode="decimal" min="1" step="any" value="1000"></div>
+<div class="row"><label for="l">Petrol car (liters per 100 km)</label><input id="l" type="number" inputmode="decimal" min="0" step="any" value="6.5"></div>
+<div class="row"><label for="b">Petrol price (per liter)</label><input id="b" type="number" inputmode="decimal" min="0" step="any" value="1.80"></div>{% else %}<div class="row"><label for="c">Verbrauch (kWh pro 100 km)</label><input id="c" type="number" inputmode="decimal" min="0" step="any" value="18"></div>
+<div class="row"><label for="p">Strompreis (pro kWh)</label><input id="p" type="number" inputmode="decimal" min="0" step="any" value="0.30"></div>
+<div class="row"><label for="g">Grundgebühren pro Monat</label><input id="g" type="number" inputmode="decimal" min="0" step="any" value="20"></div>
+<div class="row"><label for="k">Gefahrene km pro Monat</label><input id="k" type="number" inputmode="decimal" min="1" step="any" value="1000"></div>
+<div class="row"><label for="l">Vergleich Benziner (Liter pro 100 km)</label><input id="l" type="number" inputmode="decimal" min="0" step="any" value="6.5"></div>
+<div class="row"><label for="b">Benzinpreis (pro Liter)</label><input id="b" type="number" inputmode="decimal" min="0" step="any" value="1.80"></div>{% endif %}
+</div>
+<output class="result" id="out" for="c p g k l b" aria-live="polite">{% if en %}<span class="big">7.40</span> per 100 km<span class="sub">Electricity 5.40 + base fee 2.00</span><span class="sub">Petrol car 11.70 per 100 km. You save 4.30 per 100 km, about 516.00 a year.</span>{% else %}<span class="big">7.40</span> pro 100 km<span class="sub">Strom 5.40 + Grundgebühr 2.00</span><span class="sub">Benziner 11.70 pro 100 km. Du sparst 4.30 pro 100 km, rund 516.00 pro Jahr.</span>{% endif %}</output>
+</form>
+<p class="meta">{% if en %}All amounts in your currency, for example EUR or CHF. The calculator runs only in your browser and stores nothing.{% else %}Alle Beträge in deiner Währung, zum Beispiel CHF oder EUR. Der Rechner läuft nur in deinem Browser und speichert nichts.{% endif %}</p>
+<script>
+(function () {
+  var en = {% if en %}true{% else %}false{% endif %};
+  var t = en
+    ? { per: " per 100 km", power: "Electricity ", fee: " + base fee ", petrol: "Petrol car ", save: "You save ", about: " per 100 km, about ", year: " a year.", more: "The EV costs ", moreEnd: " more per 100 km." }
+    : { per: " pro 100 km", power: "Strom ", fee: " + Grundgebühr ", petrol: "Benziner ", save: "Du sparst ", about: " pro 100 km, rund ", year: " pro Jahr.", more: "Das E-Auto kostet ", moreEnd: " mehr pro 100 km." };
+  var ids = ["c", "p", "g", "k", "l", "b"];
+  var fmt = new Intl.NumberFormat(en ? "en-GB" : "de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  function v(id) { var n = parseFloat(String(document.getElementById(id).value).replace(",", ".")); return isFinite(n) ? n : 0; }
+  function calc() {
+    var power = v("c") * v("p");
+    var km = v("k");
+    var fee = km > 0 ? v("g") / km * 100 : 0;
+    var total = power + fee;
+    var petrol = v("l") * v("b");
+    var diff = petrol - total;
+    var year = diff / 100 * km * 12;
+    var html = "<span class=\"big\">" + fmt.format(total) + "</span>" + t.per +
+      "<span class=\"sub\">" + t.power + fmt.format(power) + t.fee + fmt.format(fee) + "</span>";
+    if (petrol > 0) {
+      html += "<span class=\"sub\">" + t.petrol + fmt.format(petrol) + t.per + ". " +
+        (diff >= 0 ? t.save + fmt.format(diff) + t.about + fmt.format(year) + t.year
+                   : t.more + fmt.format(-diff) + t.moreEnd) + "</span>";
+    }
+    document.getElementById("out").innerHTML = html;
+  }
+  ids.forEach(function (id) { document.getElementById(id).addEventListener("input", calc); });
+  calc();
+})();
+</script>

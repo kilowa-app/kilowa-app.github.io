@@ -34,16 +34,7 @@ en: /en/ev-charging-cost-calculator.html
 <h1>E-Auto Ladekosten-Rechner</h1>
 <p class="lead">Was kostet dein Elektroauto pro 100 km, wenn auch die Grundgebühr für Wallbox, Ladekarte oder Abo mitzählt? Trag deine Werte ein. Die Felder sind mit Beispielwerten vorbefüllt, nicht mit aktuellen Marktpreisen.</p>
 
-<form class="card calc" id="calc" onsubmit="return false">
-<div class="row"><label for="c">Verbrauch (kWh pro 100 km)</label><input id="c" type="number" inputmode="decimal" min="0" step="any" value="18"></div>
-<div class="row"><label for="p">Strompreis (pro kWh)</label><input id="p" type="number" inputmode="decimal" min="0" step="any" value="0.30"></div>
-<div class="row"><label for="g">Grundgebühren pro Monat</label><input id="g" type="number" inputmode="decimal" min="0" step="any" value="20"></div>
-<div class="row"><label for="k">Gefahrene km pro Monat</label><input id="k" type="number" inputmode="decimal" min="1" step="any" value="1000"></div>
-<div class="row"><label for="l">Vergleich Benziner (Liter pro 100 km)</label><input id="l" type="number" inputmode="decimal" min="0" step="any" value="6.5"></div>
-<div class="row"><label for="b">Benzinpreis (pro Liter)</label><input id="b" type="number" inputmode="decimal" min="0" step="any" value="1.80"></div>
-<output class="result" id="out" for="c p g k l b" aria-live="polite"></output>
-</form>
-<p class="meta">Alle Beträge in deiner Währung, zum Beispiel CHF oder EUR. Der Rechner läuft nur in deinem Browser und speichert nichts.</p>
+{% include rechner.html %}
 
 <h2>So wird gerechnet</h2>
 <p><strong>Strom pro 100 km</strong> = Verbrauch × Strompreis<br>
@@ -62,31 +53,5 @@ en: /en/ev-charging-cost-calculator.html
 </div>
 </main>
 <footer><a href="/">Kilowa</a> <a href="/ladekosten-rechner.html">Ladekosten-Rechner</a> <a href="/#support">Support</a> <a href="/impressum.html">Impressum</a> <a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a> <a href="/datenschutz.html">Datenschutz</a><span class="built">Erstellt am <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: "%d.%m.%Y, %H:%M" }} Uhr</time></span></footer>
-<script>
-(function () {
-  var ids = ["c", "p", "g", "k", "l", "b"];
-  var fmt = new Intl.NumberFormat("de-CH", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  function v(id) { var n = parseFloat(String(document.getElementById(id).value).replace(",", ".")); return isFinite(n) ? n : 0; }
-  function calc() {
-    var power = v("c") * v("p");
-    var km = v("k");
-    var fee = km > 0 ? v("g") / km * 100 : 0;
-    var total = power + fee;
-    var petrol = v("l") * v("b");
-    var diff = petrol - total;
-    var year = diff / 100 * km * 12;
-    var html = "<span class=\"big\">" + fmt.format(total) + "</span> pro 100 km" +
-      "<span class=\"sub\">Strom " + fmt.format(power) + " + Grundgebühr " + fmt.format(fee) + "</span>";
-    if (petrol > 0) {
-      html += "<span class=\"sub\">Benziner " + fmt.format(petrol) + " pro 100 km. " +
-        (diff >= 0 ? "Du sparst " + fmt.format(diff) + " pro 100 km, rund " + fmt.format(year) + " pro Jahr."
-                   : "Das E-Auto kostet " + fmt.format(-diff) + " mehr pro 100 km.") + "</span>";
-    }
-    document.getElementById("out").innerHTML = html;
-  }
-  ids.forEach(function (id) { document.getElementById(id).addEventListener("input", calc); });
-  calc();
-})();
-</script>
 </body>
 </html>

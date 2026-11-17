@@ -34,16 +34,7 @@ en: /en/ev-charging-cost-calculator.html
 <h1>EV Charging Cost Calculator</h1>
 <p class="lead">What does your electric car cost per 100 km once the base fee for your wallbox, charging card or plan is included? Enter your numbers. The fields are prefilled with example values, not current market prices.</p>
 
-<form class="card calc" id="calc" onsubmit="return false">
-<div class="row"><label for="c">Consumption (kWh per 100 km)</label><input id="c" type="number" inputmode="decimal" min="0" step="any" value="18"></div>
-<div class="row"><label for="p">Electricity price (per kWh)</label><input id="p" type="number" inputmode="decimal" min="0" step="any" value="0.30"></div>
-<div class="row"><label for="g">Base fees per month</label><input id="g" type="number" inputmode="decimal" min="0" step="any" value="20"></div>
-<div class="row"><label for="k">Distance per month (km)</label><input id="k" type="number" inputmode="decimal" min="1" step="any" value="1000"></div>
-<div class="row"><label for="l">Petrol car (liters per 100 km)</label><input id="l" type="number" inputmode="decimal" min="0" step="any" value="6.5"></div>
-<div class="row"><label for="b">Petrol price (per liter)</label><input id="b" type="number" inputmode="decimal" min="0" step="any" value="1.80"></div>
-<output class="result" id="out" for="c p g k l b" aria-live="polite"></output>
-</form>
-<p class="meta">All amounts in your currency, for example EUR or CHF. The calculator runs only in your browser and stores nothing.</p>
+{% include rechner.html %}
 
 <h2>How it is calculated</h2>
 <p><strong>Electricity per 100 km</strong> = consumption × electricity price<br>
@@ -62,31 +53,5 @@ en: /en/ev-charging-cost-calculator.html
 </div>
 </main>
 <footer><a href="/en/">Kilowa</a> <a href="/en/ev-charging-cost-calculator.html">Charging cost calculator</a> <a href="/en/#support">Support</a> <a href="/en/legal-notice.html">Legal Notice</a> <a href="/en/terms.html">Terms of Use</a> <a href="/en/privacy.html">Privacy Policy</a><span class="built">Built on <time datetime="{{ site.time | date_to_xmlschema }}">{{ site.time | date: "%-d %b %Y, %H:%M %Z" }}</time></span></footer>
-<script>
-(function () {
-  var ids = ["c", "p", "g", "k", "l", "b"];
-  var fmt = new Intl.NumberFormat("en-GB", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-  function v(id) { var n = parseFloat(String(document.getElementById(id).value).replace(",", ".")); return isFinite(n) ? n : 0; }
-  function calc() {
-    var power = v("c") * v("p");
-    var km = v("k");
-    var fee = km > 0 ? v("g") / km * 100 : 0;
-    var total = power + fee;
-    var petrol = v("l") * v("b");
-    var diff = petrol - total;
-    var year = diff / 100 * km * 12;
-    var html = "<span class=\"big\">" + fmt.format(total) + "</span> per 100 km" +
-      "<span class=\"sub\">Electricity " + fmt.format(power) + " + base fee " + fmt.format(fee) + "</span>";
-    if (petrol > 0) {
-      html += "<span class=\"sub\">Petrol car " + fmt.format(petrol) + " per 100 km. " +
-        (diff >= 0 ? "You save " + fmt.format(diff) + " per 100 km, about " + fmt.format(year) + " a year."
-                   : "The EV costs " + fmt.format(-diff) + " more per 100 km.") + "</span>";
-    }
-    document.getElementById("out").innerHTML = html;
-  }
-  ids.forEach(function (id) { document.getElementById(id).addEventListener("input", calc); });
-  calc();
-})();
-</script>
 </body>
 </html>

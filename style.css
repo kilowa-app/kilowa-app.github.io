@@ -24,7 +24,7 @@
 }}
 
 *{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-padding-top:64px}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:72px}
 body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.5 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--accent)}
 a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
@@ -36,10 +36,10 @@ p,li{margin:0 0 12px}
 ul{padding-left:22px}
 
 /* Glas-Navigation, auf allen Seiten */
-body>header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;height:52px;padding:0 max(20px,calc((100% - var(--narrow))/2));background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
+body>header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 max(20px,calc((100% - var(--narrow))/2));background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--line)}
 .home>header{padding:0 max(24px,calc((100% - var(--wide))/2))}
-.brand{display:flex;align-items:center;gap:8px;color:var(--fg);text-decoration:none}
-.brand img{width:28px;height:28px;border-radius:22.5%;display:block;box-shadow:0 0 0 1px var(--line)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none}
+.brand img{width:30px;height:30px;border-radius:22.5%;display:block;box-shadow:0 0 0 1px var(--line)}
 .brand span{font-family:"Inter",-apple-system,BlinkMacSystemFont,sans-serif;font-weight:700;font-size:19px;letter-spacing:-.01em}
 .lang{display:flex;gap:4px}
 .lang a{color:var(--muted);text-decoration:none;font-size:14px;padding:4px 8px;border-radius:8px;transition:color .2s var(--ease),background-color .2s var(--ease)}
@@ -104,7 +104,7 @@ footer .built{display:block;margin-top:8px}
 .hero{background:var(--band-alt);padding:72px 24px 0;overflow:hidden}
 .hero-in{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
 .hero-text{max-width:560px}
-.hero-icon{width:64px;height:64px;border-radius:22.5%;display:block;margin:0 0 24px;box-shadow:0 0 0 1px var(--line)}
+.hero-icon{width:84px;height:84px;border-radius:22.5%;display:block;margin:0 0 36px;box-shadow:0 0 0 1px var(--line)}
 .hero h1{font-size:56px;line-height:1.05;letter-spacing:-.02em;margin:0 0 20px}
 .hero .lead{font-size:21px;line-height:1.45;color:var(--muted);margin:0}
 .hero .meta{font-size:14px;margin:0}
@@ -131,11 +131,27 @@ footer .built{display:block;margin-top:8px}
   .feature-shot .iphone{width:300px}
   .feature.flip .feature-text{order:2}
 }
-/* Signatur: Kennzahl mit kurzem Akzentbalken wie im App-Kopf */
-.feature-text .figure{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 10px;margin:0 0 24px;color:var(--fg)}
-.figure .num{position:relative;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",sans-serif;font-size:64px;line-height:1;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums;padding-bottom:12px}
-.figure .num:after{content:"";position:absolute;left:2px;bottom:0;width:40px;height:4px;border-radius:2px;background:var(--accent)}
-.figure .unit{font-size:15px;color:var(--muted);font-weight:500}
+.nobr{white-space:nowrap}
+
+/* Überzeile über dem Nutzen */
+.eyebrow{font-size:17px;font-weight:600;color:var(--accent);margin:0 0 10px}
+.feature-text .eyebrow{color:var(--accent)}
+
+/* Ladekosten-Rechner im Abschnitt */
+.calc-block{display:grid;grid-template-columns:1fr;gap:32px;max-width:960px;margin:120px auto 0;padding-top:72px;border-top:1px solid var(--line)}
+.calc-intro h3{font-size:32px;line-height:1.15;letter-spacing:-.01em;margin:0 0 16px}
+.calc-intro p{color:var(--muted);font-size:19px;margin:0 0 12px}
+.calc-intro .eyebrow{font-size:17px;color:var(--accent);margin-bottom:10px}
+.calc-intro a{font-weight:500;text-decoration:none}
+.calc-intro a:after{content:" \203A"}
+.calc-intro a:hover{text-decoration:underline}
+.calc-block .card{margin:0;background:var(--band-alt);box-shadow:none;border-radius:24px;padding:12px 24px 24px}
+.calc-block .meta{font-size:13px;margin:12px 0 0}
+@media (min-width:860px){
+  .calc-block{grid-template-columns:5fr 6fr;gap:64px;align-items:start}
+  .calc-block .calc-intro{position:sticky;top:96px}
+}
+.calc .result .big{color:var(--fg)}
 
 /* iPhone Duo: dunkle Bühne in beiden Modi */
 .duo{background:#000;color:#F5F5F7;padding:96px 24px 104px;text-align:center}
@@ -225,10 +241,10 @@ footer .built{display:block;margin-top:8px}
   .home h2{font-size:30px}
   .section-head{margin-bottom:48px}
   .feature+.feature{margin-top:88px}
-  .feature h3{font-size:26px}
+  .feature h3,.calc-intro h3{font-size:26px}
+  .calc-block{margin-top:88px;padding-top:56px}
   .feature-text p{font-size:17px}
-  .figure .num{font-size:48px}
-  .feature-shot .iphone{width:260px}
+    .feature-shot .iphone{width:260px}
   .duo{padding:72px 16px 80px}
   .duo-tabs label{padding:8px 14px}
   .more h2{font-size:24px}

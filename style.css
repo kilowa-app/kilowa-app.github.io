@@ -165,9 +165,9 @@ footer .built{display:block;margin-top:8px}
 .duo .section-head{margin-bottom:48px}
 .duo .section-head .lead{color:#A1A1A6}
 .duo-stage{max-width:960px;margin:0 auto}
-.duo-device{position:relative;margin:0 auto;padding:1.4%;border-radius:4.4% / 6.2%;background:#1C1C1E;box-shadow:inset 0 0 0 1.5px #3A3A3C}
-.duo-device:after{content:"";position:absolute;top:1.4%;bottom:1.4%;left:50%;width:1px;background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.18) 20%,rgba(255,255,255,.18) 80%,rgba(255,255,255,0));pointer-events:none}
-.duo-screens{position:relative;aspect-ratio:2853/2007;border-radius:3.4% / 4.8%;overflow:hidden;background:#0A0A0A}
+.duo-device{position:relative;margin:0 auto;padding:1%;border-radius:4% / 5.6%;background:#0B0B0C;box-shadow:0 0 0 1.5px #5A5A5E,0 0 0 3px #2A2A2D,inset 0 0 0 1px #1F1F21}
+.duo-device:after{content:"";position:absolute;top:1%;bottom:1%;left:50%;width:2px;margin-left:-1px;background:linear-gradient(90deg,rgba(0,0,0,.18),rgba(255,255,255,.22),rgba(0,0,0,.18));opacity:.7;pointer-events:none}
+.duo-screens{position:relative;aspect-ratio:2853/2007;border-radius:3.1% / 4.4%;overflow:hidden;background:#0A0A0A}
 .duo-screens img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s var(--ease)}
 .duo-pick{position:absolute;opacity:0;pointer-events:none}
 #duo-a:checked~.duo-device .s-a,#duo-b:checked~.duo-device .s-b,#duo-c:checked~.duo-device .s-c{opacity:1}

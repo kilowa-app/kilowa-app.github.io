@@ -97,7 +97,9 @@ footer .built{display:block;margin-top:8px}
 .section-head .lead{color:var(--muted);margin:0}
 
 /* iPhone-Rahmen */
-.iphone{position:relative;padding:3.2%;border-radius:15% / 7%;background:var(--bezel);box-shadow:inset 0 0 0 1.5px var(--bezel-ring),var(--phone-shadow)}
+.iphone{position:relative;container-type:inline-size;padding:3.2%;border-radius:15% / 7%;background:var(--bezel);box-shadow:inset 0 0 0 1.5px var(--bezel-ring),var(--phone-shadow)}
+/* Dynamic Island: Masse eines 6,3-Zoll-iPhones (Display 402 pt breit, Insel 125 × 37 pt, 11 pt vom oberen Rand) */
+.iphone:after{content:"";position:absolute;left:50%;top:6.15cqw;width:31.1cqw;height:9.2cqw;transform:translateX(-50%);border-radius:4.6cqw;background:#000;pointer-events:none}
 .iphone img{display:block;width:100%;height:auto;border-radius:12.4% / 5.8%}
 
 /* Hero */

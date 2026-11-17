@@ -132,6 +132,7 @@ footer .built{display:block;margin-top:8px}
   /* Text bleibt beim Scrollen neben dem hohen Screenshot stehen, wie beim Rechner */
   .feature{grid-template-columns:1fr 1fr;gap:80px;align-items:start}
   .feature-text{position:sticky;top:120px;padding-top:48px}
+  .feature-shot{position:sticky;top:96px}
   .feature-shot .iphone{width:300px}
   .feature.flip .feature-text{order:2}
 }
@@ -169,14 +170,17 @@ footer .built{display:block;margin-top:8px}
 /* Erkunden wie bei Apple: Pillen links, aktive Pille als Karte, Gerät rechts */
 .explore{position:relative}
 .ex-pick{position:absolute;opacity:0;pointer-events:none}
-.ex-list-wrap{position:relative;display:flex;gap:12px;align-items:center;margin-top:28px}
+.ex-list-wrap{position:relative;display:flex;gap:12px;align-items:flex-end;margin-top:28px}
 .ex-nav{display:flex;flex-direction:column;gap:12px;flex:none}
 .ex-nav button{width:32px;height:32px;border-radius:50%;border:0;padding:0;cursor:pointer;background:var(--band-alt) center/14px no-repeat;box-shadow:inset 0 0 0 1px var(--line);transition:opacity .2s var(--ease),background-color .2s var(--ease)}
 .ex-up{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3 9l4-4 4 4' fill='none' stroke='%236E6E73' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important}
 .ex-down{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3 5l4 4 4-4' fill='none' stroke='%236E6E73' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")!important}
-.ex-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;align-items:flex-start;gap:10px;flex:1;min-width:0}
+.ex-body{flex:1;min-width:0}
+.ex-list{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
+.ex-cards{margin-top:16px}
+.ex-cards .ex-card{max-width:none}
 .ex-list li{margin:0;max-width:100%}
-.ex-pill{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 20px 0 12px;border-radius:22px;background:var(--band-alt);color:var(--fg);font-size:17px;font-weight:600;cursor:pointer;transition:background-color .2s var(--ease)}
+.ex-pill{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px 0 10px;border-radius:20px;background:var(--band-alt);color:var(--fg);font-size:16px;font-weight:600;cursor:pointer;transition:background-color .2s var(--ease)}
 .ex-pill:hover{background:color-mix(in srgb,var(--band-alt) 85%,var(--fg))}
 .ex-plus{width:22px;height:22px;border-radius:50%;box-shadow:inset 0 0 0 1.5px currentColor;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M11 6.5v9M6.5 11h9' stroke='%23888' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center/22px no-repeat}
 .ex-pill .pro,.ex-card .pro{font-size:12px;font-weight:600;color:var(--accent)}
@@ -187,18 +191,20 @@ footer .built{display:block;margin-top:8px}
 .ex-screens img{transition:opacity .45s var(--ease),transform .55s var(--ease)}
 .ex-screens img+img{position:absolute;inset:0;height:100%}
 .ex-screens img{opacity:0;transform:scale(.97)}
-#way-wid:checked~* .p-wid,#way-lock:checked~* .p-lock,#way-kc:checked~* .p-kc,#way-akt:checked~* .p-akt,#way-siri:checked~* .p-siri,#way-kurz:checked~* .p-kurz{display:none}
+#way-wid:checked~* .p-wid,#way-lock:checked~* .p-lock,#way-kc:checked~* .p-kc,#way-akt:checked~* .p-akt,#way-siri:checked~* .p-siri,#way-kurz:checked~* .p-kurz{background:var(--accent-btn);color:#fff}
 #way-wid:checked~* .c-wid,#way-lock:checked~* .c-lock,#way-kc:checked~* .c-kc,#way-akt:checked~* .c-akt,#way-siri:checked~* .c-siri,#way-kurz:checked~* .c-kurz{display:block}
 #way-wid:focus-visible~* .c-wid,#way-lock:focus-visible~* .c-lock,#way-kc:focus-visible~* .c-kc,#way-akt:focus-visible~* .c-akt,#way-siri:focus-visible~* .c-siri,#way-kurz:focus-visible~* .c-kurz{outline:2px solid var(--accent);outline-offset:2px}
 #way-wid:checked~* .s-widget,#way-lock:checked~* .s-sperrbildschirm,#way-kc:checked~* .s-kontrollzentrum,#way-akt:checked~* .s-erfassen,#way-siri:checked~* .s-erfassen,#way-kurz:checked~* .s-erfassen{opacity:1;transform:none}
 #way-wid:checked~* .ex-up,#way-kurz:checked~* .ex-down{opacity:.35;pointer-events:none}
-#duo-start:checked~* .p-start,#duo-dash:checked~* .p-dash,#duo-verlauf:checked~* .p-verlauf{display:none}
+#duo-start:checked~* .p-start,#duo-dash:checked~* .p-dash,#duo-verlauf:checked~* .p-verlauf{background:var(--accent-btn)!important;color:#fff!important}
 #duo-start:checked~* .c-start,#duo-dash:checked~* .c-dash,#duo-verlauf:checked~* .c-verlauf{display:block}
 #duo-start:focus-visible~* .c-start,#duo-dash:focus-visible~* .c-dash,#duo-verlauf:focus-visible~* .c-verlauf{outline:2px solid var(--accent);outline-offset:2px}
 #duo-start:checked~* .s-start,#duo-dash:checked~* .s-dash,#duo-verlauf:checked~* .s-verlauf{opacity:1;transform:none}
 #duo-start:checked~* .ex-up,#duo-verlauf:checked~* .ex-down{opacity:.35;pointer-events:none}
+#way-wid:checked~* .p-wid .pro,#way-lock:checked~* .p-lock .pro,#way-kc:checked~* .p-kc .pro,#way-akt:checked~* .p-akt .pro,#way-siri:checked~* .p-siri .pro,#way-satz:checked~* .p-satz .pro,#way-kurz:checked~* .p-kurz .pro,#duo-start:checked~* .p-start .pro,#duo-dash:checked~* .p-dash .pro,#duo-verlauf:checked~* .p-verlauf .pro{color:#fff}
+#way-wid:checked~* .p-wid .ex-plus,#way-lock:checked~* .p-lock .ex-plus,#way-kc:checked~* .p-kc .ex-plus,#way-akt:checked~* .p-akt .ex-plus,#way-siri:checked~* .p-siri .ex-plus,#way-satz:checked~* .p-satz .ex-plus,#way-kurz:checked~* .p-kurz .ex-plus,#duo-start:checked~* .p-start .ex-plus,#duo-dash:checked~* .p-dash .ex-plus,#duo-verlauf:checked~* .p-verlauf .ex-plus{box-shadow:inset 0 0 0 1.5px #fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M6.5 11.2l3 3 6-6.4' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
 /* «Aus einem Satz»: bis zum eigenen Screenshot die ausgefüllte Erfassung */
-#way-satz:checked~* .p-satz{display:none}
+#way-satz:checked~* .p-satz{background:var(--accent-btn);color:#fff}
 #way-satz:checked~* .c-satz{display:block}
 #way-satz:focus-visible~* .c-satz{outline:2px solid var(--accent);outline-offset:2px}
 #way-satz:checked~* .s-erfassen{opacity:1;transform:none}

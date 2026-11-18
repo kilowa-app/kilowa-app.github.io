@@ -195,7 +195,7 @@ footer .built{display:block;margin-top:8px}
 #way-wid:checked~* .p-wid,#way-lock:checked~* .p-lock,#way-kc:checked~* .p-kc,#way-akt:checked~* .p-akt,#way-siri:checked~* .p-siri,#way-kurz:checked~* .p-kurz{background:var(--accent-btn);color:#fff}
 #way-wid:checked~* .c-wid,#way-lock:checked~* .c-lock,#way-kc:checked~* .c-kc,#way-akt:checked~* .c-akt,#way-siri:checked~* .c-siri,#way-kurz:checked~* .c-kurz{visibility:visible;opacity:1;transition:opacity .3s var(--ease)}
 #way-wid:focus-visible~* .c-wid,#way-lock:focus-visible~* .c-lock,#way-kc:focus-visible~* .c-kc,#way-akt:focus-visible~* .c-akt,#way-siri:focus-visible~* .c-siri,#way-kurz:focus-visible~* .c-kurz{outline:2px solid var(--accent);outline-offset:2px}
-#way-wid:checked~* .s-widget,#way-lock:checked~* .s-sperrbildschirm,#way-kc:checked~* .s-kontrollzentrum,#way-akt:checked~* .s-erfassen,#way-siri:checked~* .s-erfassen,#way-kurz:checked~* .s-erfassen{opacity:1;transform:none}
+#way-wid:checked~* .s-widget,#way-lock:checked~* .s-sperrbildschirm,#way-kc:checked~* .s-kontrollzentrum,#way-akt:checked~* .s-aktionstaste,#way-siri:checked~* .s-erfassen,#way-kurz:checked~* .s-kurzbefehle{opacity:1;transform:none}
 #way-wid:checked~* .ex-up,#way-kurz:checked~* .ex-down{opacity:.35;pointer-events:none}
 #duo-start:checked~* .p-start,#duo-dash:checked~* .p-dash,#duo-verlauf:checked~* .p-verlauf{background:var(--accent-btn)!important;color:#fff!important}
 #duo-start:checked~* .c-start,#duo-dash:checked~* .c-dash,#duo-verlauf:checked~* .c-verlauf{visibility:visible;opacity:1;transition:opacity .3s var(--ease)}
@@ -204,16 +204,17 @@ footer .built{display:block;margin-top:8px}
 #duo-start:checked~* .ex-up,#duo-verlauf:checked~* .ex-down{opacity:.35;pointer-events:none}
 #way-wid:checked~* .p-wid .pro,#way-lock:checked~* .p-lock .pro,#way-kc:checked~* .p-kc .pro,#way-akt:checked~* .p-akt .pro,#way-siri:checked~* .p-siri .pro,#way-satz:checked~* .p-satz .pro,#way-kurz:checked~* .p-kurz .pro,#duo-start:checked~* .p-start .pro,#duo-dash:checked~* .p-dash .pro,#duo-verlauf:checked~* .p-verlauf .pro{color:#fff}
 #way-wid:checked~* .p-wid .ex-plus,#way-lock:checked~* .p-lock .ex-plus,#way-kc:checked~* .p-kc .ex-plus,#way-akt:checked~* .p-akt .ex-plus,#way-siri:checked~* .p-siri .ex-plus,#way-satz:checked~* .p-satz .ex-plus,#way-kurz:checked~* .p-kurz .ex-plus,#duo-start:checked~* .p-start .ex-plus,#duo-dash:checked~* .p-dash .ex-plus,#duo-verlauf:checked~* .p-verlauf .ex-plus{box-shadow:inset 0 0 0 1.5px #fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Cpath d='M6.5 11.2l3 3 6-6.4' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
-/* «Aus einem Satz»: bis zum eigenen Screenshot die ausgefüllte Erfassung */
+/* «Aus einem Satz» mit eigenem Screenshot */
 #way-satz:checked~* .p-satz{background:var(--accent-btn);color:#fff}
 #way-satz:checked~* .c-satz{visibility:visible;opacity:1;transition:opacity .3s var(--ease)}
 #way-satz:focus-visible~* .c-satz{outline:2px solid var(--accent);outline-offset:2px}
-#way-satz:checked~* .s-erfassen{opacity:1;transform:none}
+#way-satz:checked~* .s-satz{opacity:1;transform:none}
+html[lang=en] #way-siri:checked~* .s-siri{opacity:1;transform:none}
 
 /* Markierungen im Bild (Sperrbildschirm) */
 .hot{position:absolute;inset:0;opacity:0;transition:opacity .5s var(--ease) .2s;pointer-events:none;border-radius:12.4% / 5.8%;overflow:hidden}
 .hot svg{position:absolute;inset:0;width:100%;height:100%}
-#way-lock:checked~.feature-shot .h-lock{opacity:1}
+#way-lock:checked~.feature-shot .h-lock,#way-akt:checked~.feature-shot .h-akt,#way-satz:checked~.feature-shot .h-satz{opacity:1}
 .hs{position:absolute;border-radius:9px;box-shadow:0 0 0 1.5px rgba(255,255,255,.9)}
 .hs b,.ex-card .num{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--accent-btn);color:#fff;font-size:12px;font-weight:600;font-style:normal;line-height:1;font-variant-numeric:tabular-nums}
 .hs b{position:absolute;left:-8px;top:-8px;box-shadow:0 0 0 2px #fff}

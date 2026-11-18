@@ -6,7 +6,11 @@
 
 English: Kilowa is an EV charging log for iPhone. It calculates cost per 100 km including base fees, price per kWh and consumption from your own charges. Free, with an optional one-time Pro purchase. No account, no ads, no tracking. Two-pane layouts for the unfolded iPhone Duo; Pro Family and shared vehicles are planned for version 1.1.
 
-## Seiten
+{% if site.appstore_id and site.appstore_id != "" %}## App Store
+
+- [Kilowa: E-Auto Ladebuch im App Store](https://apps.apple.com/app/id{{ site.appstore_id }}): Download (gratis, In-App-Kauf Pro), iPhone mit iOS 26 oder neuer
+
+{% endif %}## Seiten
 
 - [Kilowa (Deutsch)]({{ site.url }}/): Funktionen mit App-Screenshots, Ladekosten-Rechner, iPhone Duo, Free, Pro und Pro Familie, häufige Fragen, Support
 - [Kilowa (English)]({{ site.url }}/en/): features with app screenshots, charging cost calculator, iPhone Duo, Free, Pro and Pro Family, FAQ, support

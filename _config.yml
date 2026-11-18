@@ -3,7 +3,7 @@ timezone: Europe/Zurich
 url: https://kilowa-app.github.io
 # Nach dem Release die Apple-ID der App eintragen (App Store Connect > App-Informationen > Apple-ID, nur die Zahl).
 # Dann erscheinen der App-Store-Knopf, das Smart App Banner in Safari und der Download-Link in den strukturierten Daten.
-appstore_id: ""
+appstore_id: "6831160668"
 # Preise für die Versionen-Übersicht (Startseite). Leer lassen ("") blendet den Preis aus.
 price_pro_chf: "15.00"
 price_pro_eur: "14.99"

@@ -259,6 +259,26 @@ html[lang=en] #way-siri:checked~* .s-siri{opacity:1;transform:none}
 }
 @media (prefers-reduced-motion:reduce){.ex-screens img{transition:none;transform:none}.ex-card{animation:none}}
 
+/* Bänder wie in den Store-Bildern: hinter jedem Gerät, nie über das Gerät */
+.hero,.band,.duo,.feature-shot,.duo-device{isolation:isolate}
+.band,.duo,.hero{overflow-x:clip}
+.rib{position:absolute;left:-48px;right:-48px;top:44%;display:flex;flex-direction:column;gap:14px;z-index:-1;pointer-events:none}
+.rib span{position:relative;display:block;height:40px;border-radius:20px;background:#E3EAF5;overflow:hidden}
+.rib i{position:absolute;top:0;height:100%;border-radius:20px;background:#1456D9}
+.feature-shot{position:relative}
+.rib-hero{left:-60px;right:-30vw;top:34%;gap:16px}
+.rib-hero span{height:44px;border-radius:0}
+.rib-hero i{border-radius:22px}
+.hero-phone{position:relative;overflow:visible}
+.hero{overflow:hidden}
+.hero-phone .iphone{position:relative;z-index:1}
+.rib-duo{left:-48px;right:-50vw;top:30%;gap:16px}
+.rib-duo span{height:48px;border-radius:0;background:rgba(255,255,255,.08)}
+.rib-duo i{border-radius:24px}
+.duo-device{position:relative}
+@media (prefers-color-scheme:dark){.rib span{background:rgba(255,255,255,.08)}}
+@media (max-width:799px){.rib{left:-24px;right:-24px;gap:10px}.rib span{height:30px}.quick .rib{left:-12px;right:-12px}}
+
 /* So funktioniert es */
 .how{display:grid;grid-template-columns:1fr;gap:16px;list-style:none;padding:0;margin:0;counter-reset:how}
 @media (min-width:800px){.how{grid-template-columns:repeat(3,1fr);gap:24px}}
